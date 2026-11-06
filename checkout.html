@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Checkout — corner</title>
+  <meta name="description" content="Demo checkout for corner. No real payment will be processed.">
+  <meta name="theme-color" content="#f2efe7">
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/checkout.css">
+</head>
+<body class="checkout-body" data-title-en="Checkout — corner" data-title-es="Pagar — corner">
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="announcement">
+  <div class="container">
+    <span class="announcement-side" data-i18n="common.demo">Demo store</span>
+    <div class="announcement-track">
+      <span class="announcement-msg"><span class="dot"></span><span data-i18n="announce.demo.short">Demo checkout — no real payment.</span></span>
+    </div>
+    <span class="announcement-side">SSL · 256-bit</span>
+  </div>
+</div>
+
+<header class="site-header" id="siteHeader">
+  <div class="container header-inner">
+    <a class="brand" href="index.html" aria-label="corner home">
+      <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M5 5h14v4H9v10H5z" fill="currentColor"/><rect x="16.5" y="16.5" width="2.5" height="2.5" fill="#f0522d"/></svg></span>
+      <span class="brand-word">corner</span>
+      <span class="brand-dot"></span>
+    </a>
+
+    <nav class="main-nav" aria-label="Primary">
+      <a href="index.html" data-i18n="nav.home">Home</a>
+      <a href="shop.html" data-i18n="nav.shop">Shop</a>
+      <a href="shop.html?category=doorbells" data-i18n="nav.doorbells">Doorbells</a>
+      <a href="shop.html?category=cameras" data-i18n="nav.cameras">Cameras</a>
+      <a href="index.html#brands" data-i18n="nav.brands">Brands</a>
+      <a href="index.html#how" data-i18n="nav.how">How it works</a>
+    </nav>
+
+    <div class="header-actions">
+      <span class="header-note"><span class="dot"></span><span data-i18n="header.limited">Drop 004 · Live now</span></span>
+      <button class="icon-btn" type="button" data-search-open aria-label="Search" data-i18n-aria-label="nav.search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4 4"/></svg>
+      </button>
+      <div class="lang-switch" aria-label="Language">
+        <button type="button" data-lang="en" class="is-active">EN</button>
+        <button type="button" data-lang="es">ES</button>
+      </div>
+      <a class="icon-btn" href="account.html" aria-label="Account" data-i18n-aria-label="nav.account">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="3.4"/><path d="M4.7 20c.9-4.2 3.3-6.2 7.3-6.2s6.4 2 7.3 6.2"/></svg>
+      </a>
+      <button class="icon-btn bag-btn" type="button" data-cart-open aria-label="Bag" data-i18n-aria-label="nav.bag">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 8h12l-1 12H7L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+        <span class="bag-count">0</span>
+      </button>
+      <button class="icon-btn menu-btn" type="button" data-menu-open aria-label="Menu" data-i18n-aria-label="nav.menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <div id="checkoutMainView">
+
+    <div class="container checkout-top">
+      <div>
+        <div class="breadcrumb"><a href="index.html">corner</a><span>/</span><span data-i18n="checkout.title">Checkout</span></div>
+        <h1 data-i18n="checkout.title">Checkout</h1>
+      </div>
+      <p class="checkout-top-note" data-i18n="checkout.sub">You are one step away from the good stuff. This is a demo checkout — no real money moves.</p>
+    </div>
+
+    <div class="container">
+      <div class="checkout-steps" aria-label="Checkout progress">
+        <div class="checkout-step is-active" data-step-indicator="1"><span class="num">01</span><span data-i18n="checkout.step1">Contact & shipping</span></div>
+        <div class="checkout-step" data-step-indicator="2"><span class="num">02</span><span data-i18n="checkout.step2">Delivery</span></div>
+        <div class="checkout-step" data-step-indicator="3"><span class="num">03</span><span data-i18n="checkout.step3">Payment</span></div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="shop-empty" id="checkoutEmpty" style="margin-bottom:28px">
+        <h3 data-i18n="checkout.empty.title">Your bag is empty.</h3>
+        <p data-i18n="checkout.empty.body">Add a find before checkout. The drop is waiting.</p>
+        <a class="btn btn-ink" href="shop.html" data-i18n="cart.empty.cta">Shop the drop</a>
+      </div>
+    </div>
+
+    <div class="container checkout-grid" id="checkoutLayout">
+      <div class="checkout-main">
+        <div class="checkout-demo-note">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3 2.8 20h18.4L12 3Z"/><path d="M12 9v5M12 17.2v.1"/></svg>
+          <span data-i18n="checkout.demo">This is a demo checkout. No real payment will be processed and no card data is stored.</span>
+        </div>
+
+        <!-- STEP 1 -->
+        <section class="checkout-panel is-open" data-step="1">
+          <div class="checkout-panel-head">
+            <div class="checkout-panel-title"><span class="panel-num">01</span><h2 data-i18n="checkout.step1">Contact & shipping</h2></div>
+            <button class="checkout-panel-edit" type="button" data-edit-step="1" data-i18n="checkout.edit">Edit</button>
+          </div>
+          <div class="checkout-panel-body">
+            <form id="contactForm" novalidate>
+              <div class="form-section-label" data-i18n="checkout.contact">Contact</div>
+              <div class="form-grid">
+                <div class="field span-2"><label for="checkoutEmail" data-i18n="checkout.email">Email address</label><input id="checkoutEmail" name="email" type="email" autocomplete="email" required></div>
+                <div class="field span-2"><label for="checkoutPhone" data-i18n="checkout.phone">Phone number</label><input id="checkoutPhone" name="phone" type="tel" autocomplete="tel"></div>
+              </div>
+
+              <div class="form-section-label" data-i18n="checkout.shipping">Shipping address</div>
+              <div class="form-grid">
+                <div class="field"><label for="checkoutFirst" data-i18n="checkout.first">First name</label><input id="checkoutFirst" name="first" type="text" autocomplete="given-name" required></div>
+                <div class="field"><label for="checkoutLast" data-i18n="checkout.last">Last name</label><input id="checkoutLast" name="last" type="text" autocomplete="family-name" required></div>
+                <div class="field span-2"><label for="checkoutAddress" data-i18n="checkout.address">Address</label><input id="checkoutAddress" name="address" type="text" autocomplete="address-line1" required></div>
+                <div class="field span-2"><label for="checkoutAddress2" data-i18n="checkout.address2">Apartment, suite, etc.</label><input id="checkoutAddress2" name="address2" type="text" autocomplete="address-line2"></div>
+                <div class="field"><label for="checkoutCity" data-i18n="checkout.city">City</label><input id="checkoutCity" name="city" type="text" autocomplete="address-level2" required></div>
+                <div class="field"><label for="stateSelect" data-i18n="checkout.state">State</label><select id="stateSelect" name="state" autocomplete="address-level1" required><option value="">State</option></select></div>
+                <div class="field"><label for="checkoutZip" data-i18n="checkout.zip">ZIP code</label><input id="checkoutZip" name="zip" type="text" inputmode="numeric" autocomplete="postal-code" maxlength="10" required></div>
+              </div>
+
+              <div class="form-actions">
+                <a class="back-link" href="shop.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M19 12H5M11 18l-6-6 6-6"/></svg><span data-i18n="cart.continue">Continue shopping</span></a>
+                <button class="btn btn-ink" type="submit" data-next-step="1"><span data-i18n="checkout.continue.delivery">Continue to delivery</span><svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+              </div>
+            </form>
+          </div>
+          <div class="checkout-summary-mini" data-summary-mini="1"></div>
+        </section>
+
+        <!-- STEP 2 -->
+        <section class="checkout-panel" data-step="2">
+          <div class="checkout-panel-head">
+            <div class="checkout-panel-title"><span class="panel-num">02</span><h2 data-i18n="checkout.step2">Delivery</h2></div>
+            <button class="checkout-panel-edit" type="button" data-edit-step="2" data-i18n="checkout.edit">Edit</button>
+          </div>
+          <div class="checkout-panel-body">
+            <div class="form-section-label" data-i18n="checkout.delivery.title">Delivery method</div>
+            <div class="delivery-options">
+              <label class="delivery-option is-selected" data-shipping-option="standard">
+                <input type="radio" name="shipping" value="standard" checked>
+                <span class="radio-dot"></span>
+                <span><strong data-i18n="checkout.delivery.standard">Standard</strong><small data-i18n="checkout.delivery.standard.time">3–5 business days</small></span>
+                <span class="delivery-price free" id="standardPrice" data-i18n="checkout.delivery.free">Free</span>
+              </label>
+              <label class="delivery-option" data-shipping-option="express">
+                <input type="radio" name="shipping" value="express">
+                <span class="radio-dot"></span>
+                <span><strong data-i18n="checkout.delivery.express">Express</strong><small data-i18n="checkout.delivery.express.time">1–2 business days</small></span>
+                <span class="delivery-price">$12.00</span>
+              </label>
+              <label class="delivery-option" data-shipping-option="overnight">
+                <input type="radio" name="shipping" value="overnight">
+                <span class="radio-dot"></span>
+                <span><strong data-i18n="checkout.delivery.overnight">Overnight</strong><small data-i18n="checkout.delivery.overnight.time">Next business day</small></span>
+                <span class="delivery-price">$24.00</span>
+              </label>
+            </div>
+            <div class="form-actions">
+              <button class="back-link" type="button" data-back-step="2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M19 12H5M11 18l-6-6 6-6"/></svg><span data-i18n="checkout.back">Back</span></button>
+              <button class="btn btn-ink" type="button" data-next-step="2"><span data-i18n="checkout.continue.payment">Continue to payment</span><svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            </div>
+          </div>
+          <div class="checkout-summary-mini" data-summary-mini="2"></div>
+        </section>
+
+        <!-- STEP 3 -->
+        <section class="checkout-panel" data-step="3">
+          <div class="checkout-panel-head">
+            <div class="checkout-panel-title"><span class="panel-num">03</span><h2 data-i18n="checkout.step3">Payment</h2></div>
+            <button class="checkout-panel-edit" type="button" data-edit-step="3" data-i18n="checkout.edit">Edit</button>
+          </div>
+          <div class="checkout-panel-body">
+            <p class="small muted" style="margin-bottom:16px" data-i18n="checkout.payment.sub">Select a payment method. All options are wired up as a demo.</p>
+
+            <div class="express-block">
+              <div class="express-label" data-i18n="checkout.express">Express checkout</div>
+              <div class="express-row">
+                <button class="express-btn apple" type="button" data-express="applepay"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 12.7c0-2.2 1.8-3.3 1.9-3.4-1-1.5-2.6-1.7-3.1-1.8-1.3-.1-2.5.8-3.2.8-.7 0-1.7-.8-2.8-.8-1.5 0-2.8.9-3.5 2.3-1.5 2.6-.4 6.4 1 8.5.7 1 1.5 2.1 2.6 2.1 1 0 1.4-.7 2.7-.7s1.6.7 2.7.7c1.1 0 1.9-1 2.6-2 .8-1.2 1.1-2.3 1.1-2.4 0 0-2.1-.8-2.1-3.3ZM14.6 5.8c.6-.7 1-1.7.9-2.7-.9 0-2 .6-2.6 1.3-.6.6-1 1.6-.9 2.6 1 .1 2-.5 2.6-1.2Z"/></svg>Pay</button>
+                <button class="express-btn paypal" type="button" data-express="paypal"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8.5 20H5.7l3-17h4.4c2.9 0 4.6 1.5 4.3 4.2-.3 3-2.3 4.6-5.2 4.6H10l-.9 5.2H8.5Zm1.8-10h1.1c1.3 0 2.2-.6 2.4-1.9.2-1.2-.5-1.8-1.7-1.8h-1.2l-.6 3.7Z"/></svg>PayPal</button>
+                <button class="express-btn shop" type="button" data-express="shop"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3 3 8v8l9 5 9-5V8l-9-5Zm0 2.3 6.6 3.7L12 12.7 5.4 9 12 5.3Zm-7 5.2 6 3.3v5.8l-6-3.3v-5.8Zm8 9.1v-5.8l6-3.3v5.8l-6 3.3Z"/></svg>Shop Pay</button>
+              </div>
+            </div>
+
+            <div class="form-section-label" data-i18n="checkout.payment.title">Payment</div>
+            <div class="pay-methods" id="payMethods">
+              <label class="pay-method is-selected" data-pay-method="card">
+                <input type="radio" name="payment" value="card" checked>
+                <span class="radio-dot"></span>
+                <span class="pay-logo">VISA</span>
+                <span class="pay-name"><span data-i18n="checkout.card">Credit or debit card</span><span class="pay-sub" data-i18n="checkout.card.sub">Visa, Mastercard, Amex, Discover</span></span>
+              </label>
+              <label class="pay-method" data-pay-method="applepay">
+                <input type="radio" name="payment" value="applepay">
+                <span class="radio-dot"></span>
+                <span class="pay-logo">Pay</span>
+                <span class="pay-name"><span data-i18n="checkout.applepay">Apple Pay</span><span class="pay-sub" data-i18n="checkout.applepay.sub">Fastest checkout on Safari</span></span>
+                <span class="pay-badge">Express</span>
+              </label>
+              <label class="pay-method" data-pay-method="paypal">
+                <input type="radio" name="payment" value="paypal">
+                <span class="radio-dot"></span>
+                <span class="pay-logo">PP</span>
+                <span class="pay-name"><span data-i18n="checkout.paypal">PayPal</span><span class="pay-sub" data-i18n="checkout.paypal.sub">Pay with your PayPal balance</span></span>
+              </label>
+              <label class="pay-method" data-pay-method="shop">
+                <input type="radio" name="payment" value="shop">
+                <span class="radio-dot"></span>
+                <span class="pay-logo">shop</span>
+                <span class="pay-name"><span data-i18n="checkout.shop">Shop Pay</span><span class="pay-sub" data-i18n="checkout.shop.sub">Save your details for next time</span></span>
+              </label>
+              <label class="pay-method" data-pay-method="klarna">
+                <input type="radio" name="payment" value="klarna">
+                <span class="radio-dot"></span>
+                <span class="pay-logo">K.</span>
+                <span class="pay-name"><span data-i18n="checkout.klarna">Klarna</span><span class="pay-sub" data-i18n="checkout.klarna.sub">4 interest-free payments</span></span>
+              </label>
+              <label class="pay-method" data-pay-method="afterpay">
+                <input type="radio" name="payment" value="afterpay">
+                <span class="radio-dot"></span>
+                <span class="pay-logo">AP</span>
+                <span class="pay-name"><span data-i18n="checkout.afterpay">Afterpay</span><span class="pay-sub" data-i18n="checkout.afterpay.sub">Pay in 4, no interest</span></span>
+              </label>
+              <label class="pay-method" data-pay-method="affirm">
+                <input type="radio" name="payment" value="affirm">
+                <span class="radio-dot"></span>
+                <span class="pay-logo">Af</span>
+                <span class="pay-name"><span data-i18n="checkout.affirm">Affirm</span><span class="pay-sub" data-i18n="checkout.affirm.sub">Monthly payments available</span></span>
+              </label>
+              <label class="pay-method" data-pay-method="applegift">
+                <input type="radio" name="payment" value="applegift">
+                <span class="radio-dot"></span>
+                <span class="pay-logo">Apple</span>
+                <span class="pay-name"><span data-i18n="checkout.applegift">Apple Gift Card</span><span class="pay-sub" data-i18n="checkout.applegift.sub">Redeem an Apple Gift Card</span></span>
+              </label>
+              <label class="pay-method" data-pay-method="cornergift">
+                <input type="radio" name="payment" value="cornergift">
+                <span class="radio-dot"></span>
+                <span class="pay-logo">cnr</span>
+                <span class="pay-name"><span data-i18n="checkout.cornergift">Corner Gift Card</span><span class="pay-sub" data-i18n="checkout.cornergift.sub">Use a corner balance</span></span>
+              </label>
+              <label class="pay-method" data-pay-method="bank">
+                <input type="radio" name="payment" value="bank">
+                <span class="radio-dot"></span>
+                <span class="pay-logo">ACH</span>
+                <span class="pay-name"><span data-i18n="checkout.bank">Bank transfer (ACH)</span><span class="pay-sub" data-i18n="checkout.bank.sub">Pay from your bank account</span></span>
+              </label>
+            </div>
+
+            <div class="pay-form is-on" data-pay-panel="card">
+              <div class="form-grid">
+                <div class="field span-2"><label for="cardNumber" data-i18n="checkout.card.number">Card number</label><div class="card-input-wrap"><input id="cardNumber" name="cardNumber" type="text" inputmode="numeric" autocomplete="cc-number" maxlength="19" placeholder="4242 4242 4242 4242"><span class="mono" style="position:absolute;right:10px;top:50%;transform:translateY(-50%);font-size:7px;opacity:.35">VISA</span></div></div>
+                <div class="field"><label for="cardExp" data-i18n="checkout.card.exp">Expiration</label><input id="cardExp" name="cardExp" type="text" inputmode="numeric" autocomplete="cc-exp" maxlength="5" placeholder="MM/YY"></div>
+                <div class="field"><label for="cardCvc" data-i18n="checkout.card.cvc">CVC</label><input id="cardCvc" name="cardCvc" type="text" inputmode="numeric" autocomplete="cc-csc" maxlength="4" placeholder="123"></div>
+                <div class="field span-2"><label for="cardName" data-i18n="checkout.card.name">Name on card</label><input id="cardName" name="cardName" type="text" autocomplete="cc-name" placeholder="Name on card"></div>
+              </div>
+              <label class="checkbox-line" style="margin-top:12px"><input type="checkbox" checked> <span data-i18n="checkout.card.billing">Billing address is the same as shipping.</span></label>
+              <p class="pay-form-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="10" width="14" height="10" rx="1"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg><span data-i18n="checkout.card.secure">Your card details are encrypted and never stored. In this demo, they are not sent anywhere.</span></p>
+            </div>
+
+            <div class="pay-form" data-pay-panel="applepay">
+              <p class="giftcard-copy" data-i18n="checkout.payment.demo.apple">Apple Pay would open here in production. This demo does not contact Apple or take a payment.</p>
+              <button class="btn btn-ink" type="button" data-express="applepay"><span>Pay with Apple Pay</span></button>
+            </div>
+            <div class="pay-form" data-pay-panel="paypal">
+              <p class="giftcard-copy" data-i18n="checkout.payment.demo.paypal">PayPal would open here in production. No account is connected in this demo.</p>
+            </div>
+            <div class="pay-form" data-pay-panel="shop">
+              <p class="giftcard-copy" data-i18n="checkout.payment.demo.shop">Shop Pay would remember your details in production. This demo does not connect to Shopify.</p>
+            </div>
+            <div class="pay-form" data-pay-panel="klarna">
+              <p class="giftcard-copy" data-i18n="checkout.payment.demo.bnpl">You would choose a payment plan with Klarna in production. No credit check is performed in this demo.</p>
+            </div>
+            <div class="pay-form" data-pay-panel="afterpay">
+              <p class="giftcard-copy" data-i18n="checkout.payment.demo.bnpl">You would choose a payment plan with Afterpay in production. No credit check is performed in this demo.</p>
+            </div>
+            <div class="pay-form" data-pay-panel="affirm">
+              <p class="giftcard-copy" data-i18n="checkout.payment.demo.bnpl">You would choose a payment plan with Affirm in production. No credit check is performed in this demo.</p>
+            </div>
+            <div class="pay-form" data-pay-panel="applegift">
+              <p class="giftcard-copy" data-i18n="checkout.gift.copy.apple">Enter the code from the back of your Apple Gift Card. The balance will be applied to this order.</p>
+              <div class="form-grid">
+                <div class="field span-2"><label for="appleGiftCode" data-i18n="checkout.gift.code">Gift card code</label><input id="appleGiftCode" type="text" placeholder="XXXX-XXXX-XXXX-XXXX"></div>
+                <div class="field"><label for="appleGiftPin" data-i18n="checkout.gift.pin">PIN</label><input id="appleGiftPin" type="text" inputmode="numeric" maxlength="4" placeholder="1234"></div>
+              </div>
+              <p class="pay-form-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="6" width="18" height="12" rx="1"/><path d="M3 10h18"/></svg><span data-i18n="checkout.payment.demo.gift">The gift card balance would be verified at checkout. Demo codes are accepted without validation.</span></p>
+            </div>
+            <div class="pay-form" data-pay-panel="cornergift">
+              <p class="giftcard-copy" data-i18n="checkout.gift.copy.corner">Enter the code from your corner gift card. Demo codes are not validated.</p>
+              <div class="form-grid">
+                <div class="field span-2"><label for="cornerGiftCode" data-i18n="checkout.gift.code">Gift card code</label><input id="cornerGiftCode" type="text" placeholder="CORNER-XXXX-XXXX"></div>
+                <div class="field"><label for="cornerGiftPin" data-i18n="checkout.gift.pin">PIN</label><input id="cornerGiftPin" type="text" inputmode="numeric" maxlength="4" placeholder="1234"></div>
+              </div>
+              <p class="pay-form-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="6" width="18" height="12" rx="1"/><path d="M3 10h18"/></svg><span data-i18n="checkout.payment.demo.gift">The gift card balance would be verified at checkout. Demo codes are accepted without validation.</span></p>
+            </div>
+            <div class="pay-form" data-pay-panel="bank">
+              <div class="bank-note" data-i18n="checkout.bank.note">Demo only — no bank connection is made. In production this would use Plaid or a similar secure provider.</div>
+              <div class="form-grid">
+                <div class="field"><label for="bankRouting" data-i18n="checkout.bank.routing">Routing number</label><input id="bankRouting" type="text" inputmode="numeric" maxlength="9" placeholder="021000021"></div>
+                <div class="field"><label for="bankAccount" data-i18n="checkout.bank.account">Account number</label><input id="bankAccount" type="text" inputmode="numeric" maxlength="17" placeholder="000123456789"></div>
+              </div>
+            </div>
+
+            <div class="form-actions" style="margin-top:24px">
+              <button class="back-link" type="button" data-back-step="3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M19 12H5M11 18l-6-6 6-6"/></svg><span data-i18n="checkout.back">Back</span></button>
+              <button class="btn btn-ink btn-lg" type="button" id="placeOrder"><span data-i18n="checkout.place">Place order</span><svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            </div>
+          </div>
+          <div class="checkout-summary-mini" data-summary-mini="3"></div>
+        </section>
+      </div>
+
+      <aside class="checkout-aside">
+        <div class="order-summary">
+          <div class="order-summary-head">
+            <h2 data-i18n="checkout.summary">Order summary</h2>
+            <span class="mono" data-summary-count></span>
+          </div>
+          <div class="summary-items" id="summaryItems"></div>
+
+          <form class="promo-form" id="promoForm">
+            <input type="text" id="promoInput" data-i18n-placeholder="checkout.promo" placeholder="Promo code" aria-label="Promo code">
+            <button type="submit" data-i18n="checkout.promo.apply">Apply</button>
+          </form>
+          <p class="mono" id="promoMessage" style="display:none;margin-top:8px;color:var(--orange)"></p>
+
+          <div class="summary-totals">
+            <div class="summary-row"><span data-i18n="checkout.subtotal">Subtotal</span><strong id="summarySubtotal">$0.00</strong></div>
+            <div class="summary-row"><span data-i18n="checkout.shippingcost">Shipping</span><strong id="summaryShipping">$0.00</strong></div>
+            <div class="summary-row"><span data-i18n="checkout.tax">Estimated tax</span><strong id="summaryTax">$0.00</strong></div>
+            <div class="summary-row total"><span data-i18n="checkout.total">Total</span><span class="total-amount" id="summaryTotal">$0.00</span></div>
+          </div>
+
+          <div class="summary-savings"><span data-i18n="checkout.saving">You are saving</span><strong id="summarySavings">$0.00</strong></div>
+          <div class="secure-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="10" width="14" height="10" rx="1"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg><span data-i18n="checkout.secure">Secure checkout · SSL encrypted</span></div>
+        </div>
+
+        <div class="order-help">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12a9 9 0 1 1-3.5-7.1"/><path d="M21 4v5h-5"/></svg>
+          <p><strong data-i18n="checkout.help">Need a hand? Our humans answer in under 4 hours.</strong><br><a href="#" class="text-link" style="margin-top:8px" data-i18n="checkout.help.link">Chat with us</a></p>
+        </div>
+
+        <div class="checkout-demo-note" style="margin-top:14px">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3 2.8 20h18.4L12 3Z"/><path d="M12 9v5M12 17.2v.1"/></svg>
+          <span data-i18n="footer.demo">Demo checkout — no real payment will be processed.</span>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <div class="success-view" id="successView">
+    <div class="container">
+      <div class="success-card">
+        <div class="success-top">
+          <div class="success-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 4 4L19 6"/></svg></div>
+          <h1 data-i18n-html="checkout.success.title">You got<br><em>the good stuff.</em></h1>
+          <p data-i18n="checkout.success.body">Your demo order is confirmed. A confirmation email is on its way to {email} — in theory.</p>
+        </div>
+        <div class="success-meta">
+          <div><span class="mono" data-i18n="checkout.success.order">Order number</span><strong id="successOrder">CRN-000000</strong></div>
+          <div><span class="mono" data-i18n="checkout.success.estimate">Estimated delivery</span><strong id="successEstimate">—</strong></div>
+          <div><span class="mono" data-i18n="checkout.success.payment">Payment</span><strong id="successPayment">—</strong></div>
+        </div>
+        <div class="success-items" id="successItems"></div>
+        <div class="success-actions">
+          <a class="btn btn-ink" href="shop.html" data-i18n="checkout.success.keep">Keep shopping</a>
+          <a class="btn btn-outline" href="index.html" data-i18n="checkout.success.home">Back to home</a>
+        </div>
+        <p class="success-note" data-i18n="checkout.success.note">Demo order — no charge was made. This confirmation is for presentation only.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="processing-overlay" id="processingOverlay">
+    <div class="processing-box">
+      <div class="processing-mark"><span>c</span></div>
+      <h2 data-i18n="checkout.processing">Making it official…</h2>
+      <p data-i18n="checkout.processing.sub">Verifying your demo order. No charge is being made.</p>
+    </div>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a class="brand" href="index.html"><span class="brand-word">corner</span><span class="brand-dot"></span></a>
+        <p data-i18n="footer.about">The corner of the internet for brand-name overstock. Verified tech, honest prices, and the good kind of “I got it for how much?”.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="X" title="X"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 4l14 16M19 4 5 20"/></svg></a>
+          <a href="#" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.8 8.4h3.1V20H4.8zM6.3 3.8a1.8 1.8 0 1 1 0 3.6 1.8 1.8 0 0 1 0-3.6ZM10.2 8.4h3v1.6c.5-.9 1.7-1.9 3.5-1.9 3.4 0 4 2.2 4 5.1V20h-3.1v-5.9c0-1.4 0-3.2-2-3.2s-2.3 1.5-2.3 3.1V20h-3.1z"/></svg></a>
+          <a href="#" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7h2.4l.4-2.9h-2.8V9.3c0-.8.2-1.4 1.4-1.4h1.5V5.3c-.3 0-1.2-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.8v2.1H8v2.9h2.5v7z"/></svg></a>
+          <a href="#" aria-label="Reddit" title="Reddit"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="13.2" r="6.7"/><circle cx="9.3" cy="12.7" r="1" fill="#f2efe7"/><circle cx="14.7" cy="12.7" r="1" fill="#f2efe7"/><path d="M9 15.4c.8.8 1.8 1.2 3 1.2s2.2-.4 3-1.2" stroke="#f2efe7" stroke-width="1.2" fill="none" stroke-linecap="round"/><circle cx="18.3" cy="8.6" r="1.7"/><path d="M14.9 7.3 15.5 4l2.1.5" stroke="currentColor" stroke-width="1.2" fill="none" stroke-linecap="round"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.shop">Shop</h4>
+        <a href="shop.html" data-i18n="footer.all">All finds</a>
+        <a href="shop.html?category=doorbells" data-i18n="footer.doorbells">Video doorbells</a>
+        <a href="shop.html?category=cameras" data-i18n="footer.cameras">Security cameras</a>
+        <a href="shop.html?price=50" data-i18n="footer.under50">Under $50</a>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.help">Help</h4>
+        <a href="#" data-i18n="footer.shipping">Shipping & delivery</a>
+        <a href="#" data-i18n="footer.returns">Returns</a>
+        <a href="#" data-i18n="footer.faq">FAQ</a>
+        <a href="#" data-i18n="footer.contact">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.company">Company</h4>
+        <a href="index.html" data-i18n="footer.aboutus">About corner</a>
+        <a href="index.html#how" data-i18n="footer.how">How it works</a>
+        <a href="index.html#brands" data-i18n="footer.brands">Brands</a>
+        <a href="#" data-i18n="footer.careers">Careers</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span data-i18n="footer.rights">© 2026 corner. All rights reserved.</span>
+      <span class="demo-note" data-i18n="footer.demo">Demo checkout — no real payment will be processed.</span>
+      <div class="footer-legal">
+        <a href="#" data-i18n="footer.terms">Terms</a>
+        <a href="#" data-i18n="footer.privacy">Privacy</a>
+        <a href="#" data-i18n="footer.accessibility">Accessibility</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-mega" aria-hidden="true">corner<span class="dot">.</span></div>
+</footer>
+
+<script src="assets/js/data.js" defer></script>
+<script src="assets/js/i18n.js" defer></script>
+<script src="assets/js/app.js" defer></script>
+<script src="assets/js/checkout.js" defer></script>
+</body>
+</html>

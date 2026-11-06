@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My corner — account</title>
+  <meta name="description" content="Sign in to your corner account to see orders, saved finds, and early access.">
+  <meta name="theme-color" content="#f2efe7">
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/checkout.css">
+</head>
+<body data-title-en="My corner — account" data-title-es="Mi rincón — cuenta">
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="announcement">
+  <div class="container">
+    <span class="announcement-side announcement-label" data-i18n="announce.standard">The corner standard</span>
+    <div class="announcement-track">
+      <span class="announcement-msg"><span class="dot"></span><span data-i18n="announce.ship">Free shipping over $49</span></span>
+      <span class="announcement-msg"><span class="dot"></span><span data-i18n="announce.returns">30-day returns, no drama</span></span>
+      <span class="announcement-msg"><span class="dot"></span><span data-i18n="announce.drops">New drops every Thursday · 12pm ET</span></span>
+    </div>
+    <a class="announcement-side announcement-drop" href="shop.html" aria-label="Shop Drop 004" data-i18n-aria-label="announce.shopdrop"><span class="drop-live"></span>Drop 004 <span data-i18n="announce.live">Live</span></a>
+  </div>
+</div>
+
+<header class="site-header" id="siteHeader">
+  <div class="container header-inner">
+    <a class="brand" href="index.html" aria-label="corner home">
+      <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M5 5h14v4H9v10H5z" fill="currentColor"/><rect x="16.5" y="16.5" width="2.5" height="2.5" fill="#f0522d"/></svg></span>
+      <span class="brand-word">corner</span>
+      <span class="brand-dot"></span>
+    </a>
+
+    <nav class="main-nav" aria-label="Primary">
+      <a href="index.html" data-i18n="nav.home">Home</a>
+      <a href="shop.html" data-i18n="nav.shop">Shop</a>
+      <a href="shop.html?category=doorbells" data-i18n="nav.doorbells">Doorbells</a>
+      <a href="shop.html?category=cameras" data-i18n="nav.cameras">Cameras</a>
+      <a href="index.html#brands" data-i18n="nav.brands">Brands</a>
+      <a href="index.html#how" data-i18n="nav.how">How it works</a>
+    </nav>
+
+    <div class="header-actions">
+      <span class="header-note"><span class="dot"></span><span data-i18n="header.limited">Drop 004 · Live now</span></span>
+      <button class="icon-btn" type="button" data-search-open aria-label="Search" data-i18n-aria-label="nav.search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4 4"/></svg>
+      </button>
+      <div class="lang-switch" aria-label="Language">
+        <button type="button" data-lang="en" class="is-active">EN</button>
+        <button type="button" data-lang="es">ES</button>
+      </div>
+      <a class="icon-btn" href="account.html" aria-label="Account" data-i18n-aria-label="nav.account" aria-current="page">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="3.4"/><path d="M4.7 20c.9-4.2 3.3-6.2 7.3-6.2s6.4 2 7.3 6.2"/></svg>
+      </a>
+      <button class="icon-btn bag-btn" type="button" data-cart-open aria-label="Bag" data-i18n-aria-label="nav.bag">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 8h12l-1 12H7L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+        <span class="bag-count">0</span>
+      </button>
+      <button class="icon-btn menu-btn" type="button" data-menu-open aria-label="Menu" data-i18n-aria-label="nav.menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main" class="account-page">
+  <div class="container account-hero">
+    <div class="breadcrumb"><a href="index.html">corner</a><span>/</span><span data-i18n="account.title">My corner</span></div>
+    <h1 data-i18n="account.title">My corner</h1>
+    <p data-i18n="account.sub">Your orders, your saved finds, and your early access — all in one place.</p>
+  </div>
+
+  <div class="container account-shell">
+    <div class="account-art">
+      <a class="brand" href="index.html" style="color:var(--paper)"><span class="brand-word">corner</span><span class="brand-dot" style="background:var(--lime)"></span></a>
+      <div>
+        <blockquote data-i18n-html="auth.quote">The best things in life are <em>slightly used and 61% off.</em></blockquote>
+        <div class="account-art-note" data-i18n="auth.quote.meta">A very reasonable philosophy.</div>
+      </div>
+    </div>
+
+    <div class="account-main">
+      <!-- AUTH -->
+      <div id="accountAuth">
+        <div class="account-auth-tabs">
+          <button type="button" class="is-active" data-account-tab="signin" data-i18n="auth.signin">Sign in</button>
+          <button type="button" data-account-tab="create" data-i18n="auth.create">Create account</button>
+        </div>
+
+        <div class="account-auth-panel is-on" data-account-panel="signin">
+          <h2 data-i18n="auth.signin.title">Welcome back.</h2>
+          <p class="account-sub" data-i18n="auth.signin.sub">Sign in to see your orders, saved finds, and early access.</p>
+          <form class="account-form" id="accountSigninForm" novalidate>
+            <div class="field"><label data-i18n="auth.email">Email address</label><input type="email" name="email" autocomplete="email" required></div>
+            <div class="field"><label data-i18n="auth.password">Password</label><input type="password" name="password" autocomplete="current-password" minlength="8" required></div>
+            <p class="mono" data-account-error style="min-height:14px;color:var(--orange);font-size:9px"></p>
+            <button class="btn btn-ink btn-full" type="submit" data-i18n="auth.signin.cta">Sign in</button>
+          </form>
+          <p class="account-auth-alt"><span data-i18n="auth.noaccount">New here?</span> <button type="button" data-account-tab="create" data-i18n="auth.create">Create account</button> · <button type="button" data-forgot data-i18n="auth.forgot">Forgot password?</button></p>
+        </div>
+
+        <div class="account-auth-panel" data-account-panel="create" hidden>
+          <h2 data-i18n="auth.create.title">Get in the back room.</h2>
+          <p class="account-sub" data-i18n="auth.create.sub">Members see drops first, get restock alerts, and keep their finds in one place.</p>
+          <form class="account-form" id="accountCreateForm" novalidate>
+            <div class="field-row">
+              <div class="field"><label data-i18n="auth.first">First name</label><input type="text" name="first" autocomplete="given-name" required></div>
+              <div class="field"><label data-i18n="auth.last">Last name</label><input type="text" name="last" autocomplete="family-name"></div>
+            </div>
+            <div class="field"><label data-i18n="auth.email">Email address</label><input type="email" name="email" autocomplete="email" required></div>
+            <div class="field"><label data-i18n="auth.password">Password</label><input type="password" name="password" autocomplete="new-password" minlength="8" data-i18n-placeholder="auth.password.hint" placeholder="8+ characters" required></div>
+            <label class="checkbox-line"><input type="checkbox" name="terms"> <span data-i18n="auth.terms">I agree to the Terms and Privacy Policy.</span></label>
+            <label class="checkbox-line"><input type="checkbox" name="newsletter" checked> <span data-i18n="auth.newsletter">Send me first dibs on new drops.</span></label>
+            <p class="mono" data-account-error style="min-height:14px;color:var(--orange);font-size:9px"></p>
+            <button class="btn btn-ink btn-full" type="submit" data-i18n="auth.create.cta">Create my account</button>
+          </form>
+        </div>
+        <p class="account-demo" data-i18n="auth.demo">Demo account only. Credentials are stored in this browser and never sent anywhere.</p>
+      </div>
+
+      <!-- DASHBOARD -->
+      <div class="account-dashboard" id="accountDashboard">
+        <div class="account-welcome">
+          <div>
+            <div class="eyebrow" data-i18n="account.signedin">You are in.</div>
+            <h2 style="margin-top:12px"><span data-account-greeting>Hi</span>, <span data-account-first>—</span>.</h2>
+            <span class="account-email" data-account-email>—</span>
+          </div>
+          <div class="account-avatar" data-account-initial>c</div>
+        </div>
+
+        <div class="account-stats">
+          <div class="account-stat"><span class="stat-label" data-i18n="account.orders">Orders</span><strong data-account-orders-count>0</strong></div>
+          <div class="account-stat"><span class="stat-label" data-i18n="account.saved.short">Saved</span><strong data-account-saved-count>0</strong></div>
+          <div class="account-stat"><span class="stat-label" data-i18n="account.savings">Total saved</span><strong data-account-savings>$0</strong></div>
+        </div>
+
+        <div class="account-section">
+          <div class="account-section-head">
+            <h3 data-i18n="account.orders">Orders</h3>
+            <span class="mono" data-account-member>—</span>
+          </div>
+          <div class="account-orders" data-account-orders></div>
+        </div>
+
+        <div class="account-section">
+          <div class="account-section-head">
+            <h3 data-i18n="account.saved">Saved finds</h3>
+            <span class="mono" data-i18n="common.demo">Demo store</span>
+          </div>
+          <div class="account-saved" data-account-saved>
+            <div class="empty-panel">
+              <p data-i18n="account.nosaved">Nothing saved yet. Tap the heart on a find.</p>
+              <a class="btn btn-outline btn-sm" href="shop.html" data-i18n="account.shop">Shop the drop</a>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:30px">
+          <a class="btn btn-ink btn-sm" href="shop.html" data-i18n="account.shop">Shop the drop</a>
+          <button class="account-signout" type="button" data-account-signout data-i18n="account.signout">Sign out</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a class="brand" href="index.html"><span class="brand-word">corner</span><span class="brand-dot"></span></a>
+        <p data-i18n="footer.about">The corner of the internet for brand-name overstock. Verified tech, honest prices, and the good kind of “I got it for how much?”.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="X" title="X"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 4l14 16M19 4 5 20"/></svg></a>
+          <a href="#" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.8 8.4h3.1V20H4.8zM6.3 3.8a1.8 1.8 0 1 1 0 3.6 1.8 1.8 0 0 1 0-3.6ZM10.2 8.4h3v1.6c.5-.9 1.7-1.9 3.5-1.9 3.4 0 4 2.2 4 5.1V20h-3.1v-5.9c0-1.4 0-3.2-2-3.2s-2.3 1.5-2.3 3.1V20h-3.1z"/></svg></a>
+          <a href="#" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7h2.4l.4-2.9h-2.8V9.3c0-.8.2-1.4 1.4-1.4h1.5V5.3c-.3 0-1.2-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.8v2.1H8v2.9h2.5v7z"/></svg></a>
+          <a href="#" aria-label="Reddit" title="Reddit"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="13.2" r="6.7"/><circle cx="9.3" cy="12.7" r="1" fill="#f2efe7"/><circle cx="14.7" cy="12.7" r="1" fill="#f2efe7"/><path d="M9 15.4c.8.8 1.8 1.2 3 1.2s2.2-.4 3-1.2" stroke="#f2efe7" stroke-width="1.2" fill="none" stroke-linecap="round"/><circle cx="18.3" cy="8.6" r="1.7"/><path d="M14.9 7.3 15.5 4l2.1.5" stroke="currentColor" stroke-width="1.2" fill="none" stroke-linecap="round"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.shop">Shop</h4>
+        <a href="shop.html" data-i18n="footer.all">All finds</a>
+        <a href="shop.html?category=doorbells" data-i18n="footer.doorbells">Video doorbells</a>
+        <a href="shop.html?category=cameras" data-i18n="footer.cameras">Security cameras</a>
+        <a href="shop.html?price=50" data-i18n="footer.under50">Under $50</a>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.help">Help</h4>
+        <a href="#" data-i18n="footer.shipping">Shipping & delivery</a>
+        <a href="#" data-i18n="footer.returns">Returns</a>
+        <a href="#" data-i18n="footer.faq">FAQ</a>
+        <a href="#" data-i18n="footer.contact">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.company">Company</h4>
+        <a href="index.html" data-i18n="footer.aboutus">About corner</a>
+        <a href="index.html#how" data-i18n="footer.how">How it works</a>
+        <a href="index.html#brands" data-i18n="footer.brands">Brands</a>
+        <a href="#" data-i18n="footer.careers">Careers</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span data-i18n="footer.rights">© 2026 corner. All rights reserved.</span>
+      <span class="demo-note" data-i18n="footer.demo">Demo checkout — no real payment will be processed.</span>
+      <div class="footer-legal">
+        <a href="#" data-i18n="footer.terms">Terms</a>
+        <a href="#" data-i18n="footer.privacy">Privacy</a>
+        <a href="#" data-i18n="footer.accessibility">Accessibility</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-mega" aria-hidden="true">corner<span class="dot">.</span></div>
+</footer>
+
+<script src="assets/js/data.js" defer></script>
+<script src="assets/js/i18n.js" defer></script>
+<script src="assets/js/app.js" defer></script>
+<script src="assets/js/account.js" defer></script>
+</body>
+</html>

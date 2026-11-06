@@ -1,0 +1,1318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>corner — Brand names. Back-corner prices.</title>
+  <meta name="description" content="Brand-name overstock, open-box, and refurbished security cameras and video doorbells — verified, warrantied, and up to 70% off. The internet's best-kept back room.">
+  <meta name="theme-color" content="#f6f4ed">
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <style id="corner-visual-refresh">
+/* ==========================================================
+   CORNER — visual refresh layer
+   Keeps the existing HTML hooks and JavaScript interactions.
+   ========================================================== */
+:root {
+  --corner-paper: #f6f4ed;
+  --corner-paper-deep: #eeeae0;
+  --corner-ink: #202a25;
+  --corner-muted: #66716a;
+  --corner-line: rgba(32, 42, 37, .12);
+  --corner-lime: #d8f36a;
+  --corner-orange: #f0522d;
+  --corner-radius: 22px;
+  --corner-shadow: 0 22px 60px rgba(32, 42, 37, .10);
+  --corner-shadow-soft: 0 10px 30px rgba(32, 42, 37, .07);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 108px;
+  background: var(--corner-paper);
+}
+
+body {
+  background: var(--corner-paper);
+  color: var(--corner-ink);
+  font-family: Inter, "Avenir Next", Avenir, "Segoe UI", sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  letter-spacing: -.012em;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection { color: var(--corner-ink); background: var(--corner-lime); }
+
+.container {
+  width: min(1280px, calc(100% - 64px));
+  margin-inline: auto;
+}
+
+p { line-height: 1.75; }
+a { text-underline-offset: 4px; }
+button, input { font: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; }
+:focus-visible {
+  outline: 3px solid var(--corner-orange) !important;
+  outline-offset: 4px !important;
+}
+
+/* Announcement rail */
+.announcement {
+  position: relative;
+  z-index: 60;
+  color: #f7f6ef;
+  background: #202a25;
+  border-bottom: 1px solid rgba(255,255,255,.09);
+}
+.announcement .container {
+  min-height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.announcement-label,
+.announcement-drop,
+.announcement-msg {
+  color: inherit;
+  font-size: 11px;
+  line-height: 1.2;
+  font-weight: 650;
+  letter-spacing: .075em;
+  text-transform: uppercase;
+}
+.announcement-label { opacity: .66; white-space: nowrap; }
+.announcement-track {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(16px, 3vw, 42px);
+  flex: 1;
+}
+.announcement-msg { display: inline-flex; align-items: center; gap: 9px; opacity: .9; white-space: nowrap; }
+.announcement .dot,
+.announcement-drop .drop-live {
+  width: 6px;
+  height: 6px;
+  flex: 0 0 6px;
+  border-radius: 50%;
+  background: var(--corner-lime);
+  box-shadow: 0 0 0 4px rgba(216,243,106,.12);
+}
+.announcement-drop {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 11px;
+  border: 1px solid rgba(216,243,106,.34);
+  border-radius: 999px;
+  color: var(--corner-lime);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background .2s ease, color .2s ease;
+}
+.announcement-drop:hover { color: #202a25; background: var(--corner-lime); }
+
+/* Main navigation — cleaner, more deliberate hierarchy */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(246,244,237,.92);
+  border-bottom: 1px solid rgba(32,42,37,.09);
+  box-shadow: 0 5px 22px rgba(32,42,37,.035);
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+}
+.header-inner {
+  min-height: 82px;
+  display: grid;
+  grid-template-columns: auto minmax(0,1fr) auto;
+  align-items: center;
+  gap: clamp(18px, 3vw, 48px);
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--corner-ink);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.brand-mark { width: 27px; height: 27px; display: inline-flex; }
+.brand-mark svg { width: 100%; height: 100%; }
+.brand-word {
+  font-size: 30px;
+  line-height: 1;
+  font-weight: 850;
+  letter-spacing: -.09em;
+}
+.brand-dot { width: 7px; height: 7px; margin: 0 0 1px -4px; border-radius: 50%; background: var(--corner-orange); }
+.main-nav {
+  justify-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  padding: 6px;
+  border: 1px solid rgba(32,42,37,.075);
+  border-radius: 999px;
+  background: rgba(255,255,255,.52);
+}
+.main-nav a {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 0 15px;
+  border-radius: 999px;
+  color: #56615a;
+  font-size: 13px;
+  font-weight: 650;
+  letter-spacing: -.01em;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color .2s ease, background .2s ease, transform .2s ease;
+}
+.main-nav a:hover { color: var(--corner-ink); background: #eeeee5; }
+.main-nav a[aria-current="page"] { color: var(--corner-ink); background: var(--corner-lime); }
+.header-actions { display: flex; align-items: center; gap: 9px; }
+.header-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-right: 5px;
+  padding: 9px 12px;
+  border: 1px solid var(--corner-line);
+  border-radius: 999px;
+  color: #536057;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .025em;
+  white-space: nowrap;
+}
+.header-note .dot { width: 6px; height: 6px; border-radius: 50%; background: #77a943; box-shadow: 0 0 0 4px rgba(119,169,67,.12); }
+.icon-btn {
+  position: relative;
+  width: 42px;
+  height: 42px;
+  display: inline-grid;
+  place-items: center;
+  border: 1px solid var(--corner-line);
+  border-radius: 50%;
+  color: var(--corner-ink);
+  background: rgba(255,255,255,.45);
+  transition: transform .2s ease, background .2s ease, border-color .2s ease;
+}
+.icon-btn:hover { transform: translateY(-2px); border-color: rgba(32,42,37,.28); background: #fff; }
+.icon-btn svg { width: 19px; height: 19px; }
+.bag-count {
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  min-width: 17px;
+  height: 17px;
+  display: grid;
+  place-items: center;
+  padding: 0 4px;
+  border: 2px solid var(--corner-paper);
+  border-radius: 99px;
+  color: #fff;
+  background: var(--corner-orange);
+  font-size: 9px;
+  font-weight: 800;
+}
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid var(--corner-line);
+  border-radius: 999px;
+  background: rgba(255,255,255,.45);
+}
+.lang-switch button {
+  min-width: 31px;
+  min-height: 30px;
+  padding: 0 6px;
+  border: 0;
+  border-radius: 999px;
+  color: #778078;
+  background: transparent;
+  font-size: 10px;
+  font-weight: 800;
+  cursor: pointer;
+}
+.lang-switch button.is-active { color: var(--corner-ink); background: var(--corner-lime); }
+.menu-btn { display: none; }
+
+/* Hero */
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(76px, 8vw, 118px) 0 clamp(80px, 9vw, 132px);
+  background:
+    radial-gradient(ellipse at 76% 44%, rgba(216,243,106,.17), transparent 34%),
+    linear-gradient(180deg, #f8f7f1 0%, var(--corner-paper) 100%);
+}
+.hero::before {
+  position: absolute;
+  top: 7%;
+  left: -170px;
+  width: 340px;
+  height: 340px;
+  border: 1px solid rgba(32,42,37,.06);
+  border-radius: 50%;
+  content: "";
+  pointer-events: none;
+}
+.hero-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0,1.02fr) minmax(390px,.98fr);
+  align-items: center;
+  gap: clamp(46px, 7vw, 110px);
+}
+.hero-copy { position: relative; z-index: 2; max-width: 650px; }
+.hero-kicker, .eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  color: #68736a;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .13em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+.hero-kicker .line { width: 27px; height: 1px; background: var(--corner-orange); }
+.hero-kicker .tag {
+  margin-left: 4px;
+  padding: 6px 10px;
+  border: 1px solid rgba(32,42,37,.13);
+  border-radius: 999px;
+  color: var(--corner-ink);
+  background: rgba(255,255,255,.54);
+  font-size: 10px;
+  letter-spacing: .07em;
+}
+.display {
+  margin: 27px 0 25px;
+  color: var(--corner-ink);
+  font-size: clamp(64px, 7.2vw, 108px);
+  font-weight: 850;
+  letter-spacing: -.085em;
+  line-height: .91;
+}
+.display .line { display: block; }
+.price-highlight { position: relative; z-index: 0; }
+.price-highlight::after {
+  position: absolute;
+  z-index: -1;
+  right: -.025em;
+  bottom: .015em;
+  left: 0;
+  height: .27em;
+  border-radius: 5px;
+  background: var(--corner-lime);
+  content: "";
+  transform: rotate(-1.6deg);
+}
+.corner-dot { display: inline-block; width: .105em; height: .105em; margin-left: -.025em; border-radius: 50%; background: var(--corner-orange); }
+.hero-sub {
+  max-width: 555px;
+  margin: 0;
+  color: #5e6961;
+  font-size: clamp(17px, 1.35vw, 19px);
+  line-height: 1.78;
+  letter-spacing: -.018em;
+}
+.hero-sub strong { color: var(--corner-ink); font-weight: 800; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+.btn {
+  min-height: 50px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 0 22px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 750;
+  letter-spacing: -.015em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+.btn:hover { transform: translateY(-2px); box-shadow: 0 9px 22px rgba(32,42,37,.12); }
+.btn-lg { min-height: 56px; padding-inline: 25px; font-size: 15px; }
+.btn-ink { color: #f7f6ef; background: var(--corner-ink); }
+.btn-ink:hover { background: #35433b; }
+.btn-outline { color: var(--corner-ink); border-color: rgba(32,42,37,.22); background: transparent; }
+.btn-outline:hover { background: #fff; }
+.btn-lime { color: var(--corner-ink); background: var(--corner-lime); }
+.btn .arrow { width: 18px; height: 18px; }
+.hero-trust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 13px 22px;
+  margin-top: 34px;
+  color: #647067;
+  font-size: 12px;
+  font-weight: 650;
+}
+.hero-trust > span { display: inline-flex; align-items: center; gap: 7px; }
+.hero-trust svg { width: 16px; height: 16px; color: #789b42; flex: 0 0 16px; }
+.hero-visual { position: relative; min-width: 0; padding: 14px 20px 28px 0; }
+.hero-side-label {
+  position: absolute;
+  top: -16px;
+  right: 7%;
+  color: #788279;
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+  writing-mode: vertical-rl;
+}
+.hero-frame {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1.04 / 1;
+  border: 9px solid rgba(255,255,255,.82);
+  border-radius: 28px;
+  background: #e4e1d7;
+  box-shadow: var(--corner-shadow);
+}
+.hero-frame::after { position: absolute; inset: 0; border: 1px solid rgba(32,42,37,.08); border-radius: 19px; content: ""; pointer-events: none; }
+.hero-frame > img { width: 100%; height: 100%; display: block; object-fit: cover; }
+.hero-frame-label {
+  position: absolute;
+  bottom: 17px;
+  left: 17px;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 10px 14px;
+  border: 1px solid rgba(255,255,255,.35);
+  border-radius: 999px;
+  color: #fff;
+  background: rgba(25,34,29,.68);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  font-size: 11px;
+  font-weight: 700;
+}
+.hero-frame-label .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--corner-lime); }
+.hero-sticker {
+  position: absolute;
+  top: 1%;
+  left: -37px;
+  width: 105px;
+  height: 105px;
+  display: grid;
+  place-items: center;
+  border: 6px solid var(--corner-paper);
+  border-radius: 50%;
+  color: var(--corner-ink);
+  background: var(--corner-lime);
+  box-shadow: 0 12px 28px rgba(32,42,37,.14);
+  transform: rotate(-11deg);
+}
+.hero-sticker .big { display: block; font-size: 31px; font-weight: 900; letter-spacing: -.08em; line-height: 1; }
+.hero-sticker .small { display: block; margin-top: 4px; font-size: 10px; font-weight: 850; letter-spacing: .13em; text-align: center; text-transform: uppercase; }
+.hero-price-card {
+  position: absolute;
+  right: -5px;
+  bottom: -1px;
+  width: min(310px, 78%);
+  padding: 17px 19px 16px;
+  border: 1px solid rgba(32,42,37,.08);
+  border-radius: 19px;
+  background: #fffefa;
+  box-shadow: 0 18px 45px rgba(32,42,37,.16);
+}
+.hero-price-top, .hero-price-bottom { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.hero-price-brand { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.hero-price-brand img { width: 34px; height: 34px; object-fit: contain; }
+.hero-price-brand .mono { display: block; color: #798278; font-size: 10px; letter-spacing: .08em; }
+.hero-price-brand strong { display: block; max-width: 175px; overflow: hidden; color: var(--corner-ink); font-size: 12px; font-weight: 800; text-overflow: ellipsis; white-space: nowrap; }
+.hero-price-badge { padding: 5px 8px; border-radius: 999px; color: #a5442b; background: #fff0e9; font-size: 9px; font-weight: 800; white-space: nowrap; }
+.hero-price-bottom { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--corner-line); }
+.hero-price-bottom .price { color: var(--corner-ink); font-size: 28px; font-weight: 850; letter-spacing: -.07em; line-height: 1.05; }
+.hero-price-bottom .was { color: #90978f; font-size: 11px; text-decoration: line-through; }
+.add-mini { width: 38px; height: 38px; display: grid; place-items: center; border: 0; border-radius: 50%; color: var(--corner-ink); background: var(--corner-lime); cursor: pointer; transition: transform .2s ease; }
+.add-mini:hover { transform: rotate(90deg); }
+.add-mini svg { width: 17px; height: 17px; }
+.hero-stamp { position: absolute; right: -22px; top: 14%; width: 88px; height: 88px; display: grid; place-items: center; color: var(--corner-ink); border-radius: 50%; background: rgba(246,244,237,.82); box-shadow: var(--corner-shadow-soft); }
+.hero-stamp > svg { position: absolute; inset: 0; width: 100%; height: 100%; animation: corner-spin 28s linear infinite; }
+.stamp-center { width: 29px; height: 29px; display: grid; place-items: center; border-radius: 50%; background: var(--corner-lime); }
+.stamp-center svg { width: 16px; height: 16px; }
+@keyframes corner-spin { to { transform: rotate(360deg); } }
+
+/* Brand ticker */
+.brand-ticker {
+  overflow: hidden;
+  padding: 23px 0;
+  border-top: 1px solid var(--corner-line);
+  border-bottom: 1px solid var(--corner-line);
+  background: #efede4;
+}
+.brand-ticker .container { display: grid; grid-template-columns: auto minmax(0,1fr); align-items: center; gap: 32px; }
+.ticker-label { color: #798278; font-size: 10px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; white-space: nowrap; }
+.ticker-window { min-width: 0; }
+
+/* Section rhythm and typography */
+.section { padding-block: clamp(78px, 9vw, 124px); }
+.section-head { display: flex; align-items: end; justify-content: space-between; gap: 32px; margin-bottom: 38px; }
+.section-head-left { max-width: 740px; }
+.eyebrow { margin-bottom: 13px; color: #7a857b; font-size: 11px; }
+.section-title,
+.brand-wall-head h2,
+.story-copy h2,
+.how-head h2,
+.price-copy h2,
+.newsletter h2 {
+  margin: 0;
+  color: var(--corner-ink);
+  font-size: clamp(38px, 4.4vw, 61px);
+  font-weight: 820;
+  letter-spacing: -.065em;
+  line-height: 1.04;
+}
+.section-title em,
+.brand-wall-head h2 em,
+.story-copy h2 em,
+.how-head h2 em,
+.price-copy h2 em,
+.newsletter h2 em { color: #839b48; font-family: Georgia, "Times New Roman", serif; font-weight: 500; letter-spacing: -.055em; }
+.section-sub {
+  max-width: 610px;
+  margin: 16px 0 0;
+  color: #68736b;
+  font-size: 16px;
+  line-height: 1.75;
+}
+.section-head-right { display: flex; align-items: center; gap: 18px; padding-bottom: 4px; }
+.chip { display: inline-flex; align-items: center; gap: 8px; min-height: 30px; padding: 0 12px; border: 1px solid var(--corner-line); border-radius: 999px; color: #647066; background: rgba(255,255,255,.5); font-size: 10px; font-weight: 800; letter-spacing: .045em; white-space: nowrap; }
+.chip-lime { border-color: rgba(119,153,58,.22); color: #566d2d; background: #eff7d9; }
+.text-link { display: inline-flex; align-items: center; gap: 8px; color: var(--corner-ink); font-size: 13px; font-weight: 800; text-decoration: none; white-space: nowrap; }
+.text-link svg { transition: transform .2s ease; }
+.text-link:hover svg { transform: translateX(4px); }
+
+/* Product listing containers generated by the existing app.js */
+.product-grid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 22px; }
+.product-grid > * { min-width: 0; }
+.product-grid img { max-width: 100%; }
+.product-grid :is(.product-card, .product-item, .product-tile) {
+  overflow: hidden;
+  border: 1px solid rgba(32,42,37,.09);
+  border-radius: 18px;
+  background: #fffefa;
+  box-shadow: 0 5px 18px rgba(32,42,37,.035);
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.product-grid :is(.product-card, .product-item, .product-tile):hover {
+  transform: translateY(-5px);
+  border-color: rgba(32,42,37,.18);
+  box-shadow: var(--corner-shadow-soft);
+}
+.product-grid :is(.product-title, .product-name, h3) { color: var(--corner-ink); font-size: 16px; font-weight: 750; line-height: 1.4; }
+.product-grid :is(.product-price, .price) { color: var(--corner-ink); font-size: 21px; font-weight: 850; letter-spacing: -.045em; }
+.product-grid :is(.product-meta, .product-description, .product-condition) { color: #69746c; font-size: 13px; line-height: 1.55; }
+.product-grid button { min-height: 42px; }
+
+/* Brand wall, story, category cards */
+.brand-wall-section { overflow: hidden; padding-block: clamp(76px, 8vw, 110px); background: #eae9df; }
+.brand-wall-head { display: grid; grid-template-columns: minmax(0,1.1fr) minmax(260px,.7fr); align-items: end; gap: 70px; margin-bottom: 47px; }
+.brand-wall-head h2 { max-width: 780px; }
+.brand-wall-head > p { max-width: 480px; margin: 0 0 5px; color: #68736b; font-size: 16px; line-height: 1.8; }
+.brand-marquee { border-top: 1px solid rgba(32,42,37,.10); }
+.brand-marquee:last-child { border-bottom: 1px solid rgba(32,42,37,.10); }
+.story { background: #f9f8f2; }
+.story-grid { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,.93fr); align-items: center; gap: clamp(55px, 9vw, 132px); }
+.story-visual { min-width: 0; }
+.story-image { position: relative; overflow: hidden; min-height: 500px; border: 8px solid #fff; border-radius: 25px; background: #dfded4; box-shadow: var(--corner-shadow); }
+.story-image img { width: 100%; height: 100%; min-height: 500px; display: block; object-fit: cover; }
+.story-side-note, .image-caption { position: absolute; color: #fff; font-size: 11px; font-weight: 700; }
+.story-side-note { top: 18px; left: 18px; padding: 8px 12px; border: 1px solid rgba(255,255,255,.27); border-radius: 999px; background: rgba(32,42,37,.48); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
+.image-caption { right: 19px; bottom: 18px; left: 19px; text-shadow: 0 1px 10px rgba(0,0,0,.5); }
+.story-copy h2 { max-width: 620px; font-size: clamp(38px, 4.3vw, 58px); }
+.story-body { margin-top: 24px; }
+.story-body p { margin: 0 0 15px; color: #657168; font-size: 16px; line-height: 1.82; }
+.story-body strong { color: var(--corner-ink); }
+.story-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin-top: 32px; padding-block: 22px; border-top: 1px solid var(--corner-line); border-bottom: 1px solid var(--corner-line); }
+.stat-num { color: var(--corner-ink); font-size: clamp(27px, 3vw, 38px); font-weight: 850; letter-spacing: -.07em; line-height: 1.1; }
+.stat-label { margin-top: 6px; color: #7a857c; font-size: 11px; font-weight: 700; line-height: 1.45; }
+.story-callout { display: flex; align-items: flex-start; gap: 13px; margin-top: 24px; padding: 17px 18px; border: 1px solid rgba(119,153,58,.2); border-radius: 14px; background: #f0f5df; }
+.story-callout .mark { width: 25px; height: 25px; flex: 0 0 25px; display: grid; place-items: center; border-radius: 50%; background: var(--corner-lime); }
+.story-callout .mark svg { width: 14px; height: 14px; }
+.story-callout p { margin: 0; color: #4f5d4c; font-size: 13px; font-weight: 650; line-height: 1.6; }
+.category-section { background: var(--corner-paper); }
+.cat-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 20px; }
+.cat-card { position: relative; overflow: hidden; min-height: 430px; border-radius: 21px; isolation: isolate; color: #fff; background: #525a50; box-shadow: var(--corner-shadow-soft); text-decoration: none; }
+.cat-card::after { position: absolute; z-index: -1; inset: 0; background: linear-gradient(180deg, rgba(14,22,18,.08) 10%, rgba(14,22,18,.72) 100%); content: ""; transition: opacity .25s ease; }
+.cat-card > img { position: absolute; z-index: -2; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .55s cubic-bezier(.2,.7,.2,1); }
+.cat-card:hover > img { transform: scale(1.055); }
+.cat-card-top { position: absolute; top: 17px; right: 17px; left: 17px; display: flex; justify-content: space-between; gap: 8px; }
+.cat-card .chip { min-height: 29px; border-color: rgba(255,255,255,.28); color: #fff; background: rgba(20,29,24,.38); -webkit-backdrop-filter: blur(9px); backdrop-filter: blur(9px); }
+.cat-card-content { position: absolute; right: 25px; bottom: 25px; left: 25px; }
+.cat-card-content .mono { color: rgba(255,255,255,.76); font-size: 11px; font-weight: 750; letter-spacing: .09em; text-transform: uppercase; }
+.cat-card-content h3 { margin: 8px 0 18px; color: #fff; font-size: clamp(25px, 2.4vw, 33px); font-weight: 800; letter-spacing: -.055em; line-height: 1.12; }
+.cat-link { display: inline-flex; align-items: center; gap: 10px; color: #fff; font-size: 13px; font-weight: 800; }
+.cat-link svg { width: 17px; height: 17px; transition: transform .2s ease; }
+.cat-card:hover .cat-link svg { transform: translateX(5px); }
+
+/* How it works */
+.how-section { color: #f4f4eb; background: #202a25; }
+.how-section .eyebrow { color: #aab69f; }
+.how-head { display: grid; grid-template-columns: minmax(0,1.2fr) minmax(230px,.6fr); align-items: end; gap: 60px; }
+.how-head h2 { max-width: 790px; color: #f5f4ec; }
+.how-head h2 em { color: var(--corner-lime); }
+.how-head > p { margin: 0 0 8px; color: #acb5ad; font-size: 13px; line-height: 1.75; }
+.steps { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 0; margin-top: 66px; border-top: 1px solid rgba(255,255,255,.17); border-bottom: 1px solid rgba(255,255,255,.17); }
+.step { min-height: 250px; padding: 32px 34px 35px 0; }
+.step + .step { padding-left: 34px; border-left: 1px solid rgba(255,255,255,.15); }
+.step-num { color: var(--corner-lime); font-family: Georgia, serif; font-size: 38px; font-style: italic; line-height: 1; }
+.step h3 { margin: 28px 0 12px; color: #f8f7f0; font-size: 21px; font-weight: 750; letter-spacing: -.04em; }
+.step p { max-width: 350px; margin: 0; color: #b0b9b1; font-size: 14px; line-height: 1.8; }
+.how-bottom { display: flex; align-items: center; justify-content: space-between; gap: 25px; padding-top: 31px; }
+.how-bottom p { margin: 0; color: #e9ebdf; font-size: 19px; font-weight: 650; letter-spacing: -.03em; }
+.how-bottom p em { color: var(--corner-lime); font-family: Georgia, serif; font-weight: 500; }
+
+/* Featured price panel */
+.price-section { padding-block: clamp(68px, 8vw, 100px); background: #eae9df; }
+.price-card { position: relative; overflow: hidden; display: grid; grid-template-columns: minmax(0,1.03fr) minmax(0,.97fr); min-height: 490px; border-radius: 27px; background: #f9f8f1; box-shadow: var(--corner-shadow-soft); }
+.price-copy { align-self: center; padding: clamp(36px, 6vw, 78px); }
+.price-copy .eyebrow { margin-bottom: 17px; }
+.price-copy h2 { font-size: clamp(40px, 4.3vw, 60px); }
+.price-copy > p { max-width: 480px; margin: 20px 0 25px; color: #67736a; font-size: 15px; line-height: 1.8; }
+.price-copy .btn { color: #f7f6ef; background: var(--corner-ink); }
+.price-visual { position: relative; display: grid; place-items: center; min-height: 420px; background: #e4e6d9; }
+.product-cutout { width: 78%; height: 82%; display: grid; place-items: center; }
+.product-cutout img { max-width: 100%; max-height: 100%; object-fit: contain; filter: drop-shadow(0 20px 24px rgba(30,40,33,.16)); }
+.price-sticker { position: absolute; top: 12%; right: 10%; width: 110px; height: 110px; display: grid; place-items: center; border: 7px solid #e4e6d9; border-radius: 50%; background: var(--corner-lime); text-align: center; transform: rotate(9deg); }
+.price-sticker strong { display: block; font-size: 30px; font-weight: 900; letter-spacing: -.08em; line-height: 1; }
+.price-sticker span { display: block; margin-top: 4px; font-size: 9px; font-weight: 850; letter-spacing: .08em; text-transform: uppercase; }
+.price-compare { position: absolute; right: 25px; bottom: 22px; left: 25px; padding: 14px 17px; border: 1px solid rgba(32,42,37,.08); border-radius: 14px; background: rgba(255,255,255,.85); }
+.price-compare .mono { color: #818b81; font-size: 10px; font-weight: 750; letter-spacing: .08em; text-transform: uppercase; }
+.price-compare .row { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; margin-top: 4px; }
+.price-compare .old { color: #969d94; font-size: 14px; text-decoration: line-through; }
+.price-compare .new { color: var(--corner-ink); font-size: 29px; font-weight: 850; letter-spacing: -.07em; }
+
+/* Testimonials */
+.testimonials { background: #f9f8f2; }
+.quote-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 18px; }
+.quote-card { display: flex; flex-direction: column; min-height: 245px; padding: 25px; border: 1px solid var(--corner-line); border-radius: 18px; background: #fffefa; box-shadow: 0 6px 20px rgba(32,42,37,.035); }
+.quote-stars { display: flex; gap: 3px; color: #d28e36; }
+.quote-stars svg { width: 15px; height: 15px; }
+.quote-text { flex: 1; margin: 20px 0 25px; color: #3c4941; font-family: Georgia, "Times New Roman", serif; font-size: 19px; line-height: 1.55; }
+.quote-meta { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 15px; border-top: 1px solid var(--corner-line); }
+.quote-person span { display: block; }
+.quote-person span:first-child { color: var(--corner-ink); font-size: 12px; font-weight: 800; }
+.quote-person span:last-child { margin-top: 3px; color: #899188; font-size: 10px; }
+.quote-logo { width: 35px; height: 35px; display: grid; place-items: center; border-radius: 50%; color: #465443; background: #e9efdc; font-size: 10px; font-weight: 850; }
+
+/* Newsletter */
+.newsletter { position: relative; overflow: hidden; padding-block: clamp(68px, 8vw, 102px); color: #fff; background: #27342d; }
+.newsletter-bg { position: absolute; inset: 0; }
+.newsletter-bg::after { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(23,32,27,.94), rgba(23,32,27,.77)); content: ""; }
+.newsletter-bg img { width: 100%; height: 100%; object-fit: cover; opacity: .38; }
+.newsletter-inner { position: relative; display: grid; grid-template-columns: minmax(0,1fr) minmax(320px,.8fr); align-items: center; gap: clamp(45px, 9vw, 130px); }
+.newsletter .eyebrow { color: #c2cbbd; }
+.newsletter h2 { color: #fff; font-size: clamp(42px, 5.2vw, 70px); }
+.newsletter h2 em { color: var(--corner-lime); }
+.newsletter-form-wrap > p { max-width: 470px; margin: 0 0 22px; color: #d0d6ce; font-size: 15px; line-height: 1.75; }
+.newsletter-input-row { display: flex; min-height: 58px; padding: 5px; border: 1px solid rgba(255,255,255,.27); border-radius: 999px; background: rgba(255,255,255,.1); }
+.newsletter-input-row input { width: 100%; min-width: 0; padding: 0 18px; border: 0; outline: 0; color: #fff; background: transparent; font-size: 14px; }
+.newsletter-input-row input::placeholder { color: rgba(255,255,255,.63); }
+.newsletter-input-row button { width: 46px; height: 46px; flex: 0 0 46px; display: grid; place-items: center; border: 0; border-radius: 50%; color: var(--corner-ink); background: var(--corner-lime); cursor: pointer; transition: transform .2s ease; }
+.newsletter-input-row button:hover { transform: translateX(2px); }
+.newsletter-input-row button svg { width: 19px; height: 19px; }
+.newsletter-note { display: block; margin: 12px 0 0 18px; color: rgba(255,255,255,.56); font-size: 10px; line-height: 1.6; }
+.newsletter-success { margin-top: 13px; color: var(--corner-lime); font-size: 13px; }
+
+/* Footer */
+.site-footer { position: relative; overflow: hidden; padding: 70px 0 30px; color: #e8ebe3; background: #18221d; }
+.footer-top { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(220px,1.5fr) repeat(3,minmax(110px,.7fr)); gap: clamp(32px, 6vw, 86px); padding-bottom: 55px; }
+.footer-brand .brand { color: #f7f6ef; }
+.footer-brand .brand-word { font-size: 34px; }
+.footer-brand > p { max-width: 310px; margin: 19px 0; color: #aab5aa; font-size: 13px; line-height: 1.8; }
+.footer-social { display: flex; gap: 8px; }
+.footer-social a { width: 35px; height: 35px; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.17); border-radius: 50%; color: #e4e9df; transition: color .2s ease, background .2s ease; }
+.footer-social a:hover { color: var(--corner-ink); background: var(--corner-lime); }
+.footer-social svg { width: 15px; height: 15px; }
+.footer-col { display: flex; flex-direction: column; align-items: flex-start; gap: 11px; }
+.footer-col h4 { margin: 5px 0 8px; color: #f6f6ed; font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.footer-col a { color: #aab5aa; font-size: 12px; text-decoration: none; transition: color .2s ease; }
+.footer-col a:hover { color: var(--corner-lime); }
+.footer-bottom { position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between; gap: 18px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.14); color: #8e9a90; font-size: 10px; }
+.footer-legal { display: flex; flex-wrap: wrap; gap: 18px; }
+.footer-legal a { color: inherit; text-decoration: none; }
+.footer-legal a:hover { color: #fff; }
+.demo-note { color: #a6afa3; }
+.footer-mega { color: rgba(255,255,255,.035); font-size: clamp(130px, 24vw, 330px); font-weight: 900; letter-spacing: -.11em; line-height: .7; white-space: nowrap; pointer-events: none; }
+.footer-mega .dot { color: rgba(240,82,45,.16); }
+
+/* Small copy should remain comfortably readable */
+.mono { font-size: 12px; line-height: 1.55; }
+.stat-label, .newsletter-note, .quote-person span:last-child { font-size: 11px; }
+
+/* Responsive */
+@media (max-width: 1120px) {
+  .container { width: min(100% - 48px, 1280px); }
+  .header-inner { gap: 16px; }
+  .main-nav a { padding-inline: 11px; font-size: 12px; }
+  .header-note { display: none; }
+  .hero-grid { gap: 48px; grid-template-columns: minmax(0,1fr) minmax(350px,.9fr); }
+  .display { font-size: clamp(60px, 7.1vw, 88px); }
+  .product-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
+  .cat-card { min-height: 370px; }
+}
+
+@media (max-width: 900px) {
+  .container { width: calc(100% - 40px); }
+  .header-inner { min-height: 74px; grid-template-columns: auto 1fr; }
+  .main-nav { display: none; }
+  .header-actions { justify-self: end; }
+  .menu-btn { display: inline-grid; }
+  .hero { padding-block: 70px 85px; }
+  .hero-grid { grid-template-columns: minmax(0,1fr) minmax(300px,.85fr); gap: 30px; }
+  .display { font-size: clamp(57px, 8vw, 78px); }
+  .hero-sticker { left: -25px; width: 88px; height: 88px; }
+  .hero-sticker .big { font-size: 26px; }
+  .hero-price-card { width: 82%; }
+  .brand-wall-head { gap: 35px; }
+  .story-grid { gap: 45px; }
+  .story-image, .story-image img { min-height: 430px; }
+  .cat-grid { gap: 14px; }
+  .cat-card { min-height: 330px; }
+  .cat-card-content { right: 18px; bottom: 20px; left: 18px; }
+  .price-card { min-height: 420px; }
+  .price-copy { padding: 38px; }
+  .footer-top { gap: 35px; }
+}
+
+@media (max-width: 680px) {
+  html { scroll-padding-top: 82px; }
+  .container { width: calc(100% - 36px); }
+  .announcement .container { min-height: 38px; justify-content: center; gap: 10px; }
+  .announcement-label { display: none; }
+  .announcement-track { gap: 0; flex: 0 1 auto; min-width: 0; }
+  .announcement-msg { display: none; }
+  .announcement-msg:first-child { display: inline-flex; font-size: 9.5px; padding: 0 2px; }
+  .announcement-drop { flex: 0 0 auto; padding: 5px 9px; font-size: 9px; }
+  .announcement-drop .drop-live { width: 5px; height: 5px; flex-basis: 5px; }
+  .header-inner { min-height: 68px; }
+  .brand-word { font-size: 27px; }
+  .brand-mark { width: 24px; height: 24px; }
+  .header-actions { gap: 6px; }
+  .icon-btn { width: 38px; height: 38px; }
+  .icon-btn svg { width: 18px; height: 18px; }
+  .lang-switch { padding: 2px; }
+  .lang-switch button { min-width: 27px; min-height: 27px; font-size: 9px; }
+  .header-actions > a[aria-label="Account"] { display: none; }
+  .hero { padding: 58px 0 68px; }
+  .hero-grid { grid-template-columns: 1fr; gap: 55px; }
+  .hero-copy { max-width: none; }
+  .hero-kicker { flex-wrap: wrap; font-size: 10px; }
+  .display { margin: 22px 0 19px; font-size: clamp(57px, 15vw, 82px); line-height: .94; }
+  .hero-sub { max-width: 560px; font-size: 16px; line-height: 1.72; }
+  .hero-actions { margin-top: 25px; gap: 9px; }
+  .btn-lg { min-height: 51px; padding-inline: 19px; font-size: 13px; }
+  .hero-trust { gap: 11px 17px; margin-top: 25px; font-size: 11px; }
+  .hero-visual { width: min(100%, 490px); justify-self: center; padding: 8px 13px 24px 0; }
+  .hero-frame { aspect-ratio: 1.08 / 1; border-width: 6px; border-radius: 21px; }
+  .hero-sticker { top: 0; left: -15px; width: 78px; height: 78px; border-width: 4px; }
+  .hero-sticker .big { font-size: 23px; }
+  .hero-sticker .small { font-size: 8px; }
+  .hero-stamp { top: 11%; right: -6px; width: 68px; height: 68px; }
+  .hero-price-card { right: 0; bottom: -3px; width: min(290px, 82%); padding: 13px 14px; border-radius: 15px; }
+  .hero-price-brand img { width: 29px; height: 29px; }
+  .hero-price-brand strong { max-width: 145px; font-size: 10px; }
+  .hero-price-badge { font-size: 8px; }
+  .hero-price-bottom .price { font-size: 24px; }
+  .hero-side-label { right: 4%; top: -20px; font-size: 8px; }
+  .brand-ticker { padding: 18px 0; }
+  .brand-ticker .container { grid-template-columns: 1fr; gap: 10px; }
+  .ticker-label { font-size: 9px; }
+  .section { padding-block: 69px; }
+  .section-head { align-items: flex-start; flex-direction: column; gap: 18px; margin-bottom: 27px; }
+  .section-head-right { width: 100%; justify-content: space-between; }
+  .section-title, .brand-wall-head h2, .story-copy h2, .how-head h2, .price-copy h2 { font-size: clamp(36px, 10vw, 48px); }
+  .section-sub { margin-top: 12px; font-size: 14px; line-height: 1.72; }
+  .product-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; }
+  .product-grid :is(.product-title, .product-name, h3) { font-size: 14px; }
+  .product-grid :is(.product-price, .price) { font-size: 18px; }
+  .product-grid :is(.product-meta, .product-description, .product-condition) { font-size: 12px; }
+  .brand-wall-section { padding-block: 65px; }
+  .brand-wall-head { grid-template-columns: 1fr; gap: 16px; margin-bottom: 30px; }
+  .brand-wall-head > p { font-size: 14px; }
+  .story-grid { grid-template-columns: 1fr; gap: 36px; }
+  .story-image, .story-image img { min-height: 340px; }
+  .story-copy h2 { font-size: clamp(37px, 9.5vw, 49px); }
+  .story-body p { font-size: 14px; }
+  .story-stats { gap: 8px; margin-top: 24px; padding-block: 18px; }
+  .stat-num { font-size: 29px; }
+  .stat-label { font-size: 10px; }
+  .cat-grid { grid-template-columns: 1fr; gap: 13px; }
+  .cat-card { min-height: 370px; }
+  .cat-card-content h3 { font-size: 30px; }
+  .how-head { grid-template-columns: 1fr; gap: 17px; }
+  .how-head > p { max-width: 390px; }
+  .steps { grid-template-columns: 1fr; margin-top: 35px; }
+  .step { min-height: 0; padding: 25px 0 27px; }
+  .step + .step { padding-left: 0; border-top: 1px solid rgba(255,255,255,.15); border-left: 0; }
+  .step-num { font-size: 30px; }
+  .step h3 { margin: 15px 0 7px; font-size: 19px; }
+  .step p { font-size: 13px; }
+  .how-bottom { align-items: flex-start; flex-direction: column; padding-top: 25px; }
+  .how-bottom p { font-size: 17px; }
+  .price-section { padding-block: 55px; }
+  .price-card { grid-template-columns: 1fr; }
+  .price-copy { padding: 31px 25px 26px; }
+  .price-copy > p { font-size: 14px; }
+  .price-visual { min-height: 330px; }
+  .product-cutout { height: 78%; }
+  .price-sticker { top: 8%; right: 8%; width: 88px; height: 88px; border-width: 5px; }
+  .price-sticker strong { font-size: 25px; }
+  .price-compare { right: 16px; bottom: 14px; left: 16px; }
+  .quote-grid { grid-template-columns: 1fr; gap: 12px; }
+  .quote-card { min-height: 0; padding: 21px; }
+  .quote-text { margin: 15px 0 21px; font-size: 18px; }
+  .newsletter-inner { grid-template-columns: 1fr; gap: 24px; }
+  .newsletter h2 { font-size: clamp(43px, 12vw, 58px); }
+  .newsletter-form-wrap > p { font-size: 14px; }
+  .site-footer { padding-top: 55px; }
+  .footer-top { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 34px 25px; padding-bottom: 38px; }
+  .footer-brand { grid-column: 1 / -1; }
+  .footer-brand > p { max-width: 390px; }
+  .footer-bottom { align-items: flex-start; flex-direction: column; gap: 10px; }
+  .footer-mega { font-size: 34vw; }
+}
+
+@media (max-width: 380px) {
+  .container { width: calc(100% - 28px); }
+  .announcement-drop { padding: 4px 7px; }
+  .announcement-msg:first-child { font-size: 9px; }
+  .header-actions { gap: 4px; }
+  .icon-btn { width: 35px; height: 35px; }
+  .lang-switch button { min-width: 24px; padding-inline: 4px; }
+  .display { font-size: 54px; }
+  .hero-trust { font-size: 10px; }
+  .product-grid { gap: 9px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
+
+  </style>
+  <meta property="og:title" content="corner — Brand names. Back-corner prices.">
+  <meta property="og:description" content="Brand-name overstock, open-box, and refurbished tech. Verified, warrantied, and up to 70% off.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/img/og-image.jpg">
+</head>
+<body data-title-en="corner — Brand names. Back-corner prices." data-title-es="corner — Grandes marcas. Precios de rincón.">
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="announcement">
+  <div class="container">
+    <span class="announcement-side announcement-label" data-i18n="announce.standard">The corner standard</span>
+    <div class="announcement-track">
+      <span class="announcement-msg"><span class="dot"></span><span data-i18n="announce.ship">Free shipping over $49</span></span>
+      <span class="announcement-msg"><span class="dot"></span><span data-i18n="announce.returns">30-day returns, no drama</span></span>
+      <span class="announcement-msg"><span class="dot"></span><span data-i18n="announce.drops">New drops every Thursday · 12pm ET</span></span>
+    </div>
+    <a class="announcement-side announcement-drop" href="shop.html" aria-label="Shop Drop 004" data-i18n-aria-label="announce.shopdrop"><span class="drop-live"></span>Drop 004 <span data-i18n="announce.live">Live</span></a>
+  </div>
+</div>
+
+<header class="site-header" id="siteHeader">
+  <div class="container header-inner">
+    <a class="brand" href="index.html" aria-label="corner home">
+      <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M5 5h14v4H9v10H5z" fill="currentColor"/><rect x="16.5" y="16.5" width="2.5" height="2.5" fill="#f0522d"/></svg></span>
+      <span class="brand-word">corner</span>
+      <span class="brand-dot"></span>
+    </a>
+
+    <nav class="main-nav" aria-label="Primary">
+      <a href="index.html" data-i18n="nav.home" aria-current="page">Home</a>
+      <a href="shop.html" data-i18n="nav.shop">Shop</a>
+      <a href="shop.html?category=doorbells" data-i18n="nav.doorbells">Doorbells</a>
+      <a href="shop.html?category=cameras" data-i18n="nav.cameras">Cameras</a>
+      <a href="#brands" data-i18n="nav.brands">Brands</a>
+      <a href="#how" data-i18n="nav.how">How it works</a>
+    </nav>
+
+    <div class="header-actions">
+      <span class="header-note"><span class="dot"></span><span data-i18n="header.limited">Drop 004 · Live now</span></span>
+      <button class="icon-btn" type="button" data-search-open aria-label="Search" data-i18n-aria-label="nav.search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4 4"/></svg>
+      </button>
+      <div class="lang-switch" aria-label="Language">
+        <button type="button" data-lang="en" class="is-active">EN</button>
+        <button type="button" data-lang="es">ES</button>
+      </div>
+      <a class="icon-btn" href="account.html" aria-label="Account" data-i18n-aria-label="nav.account">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="3.4"/><path d="M4.7 20c.9-4.2 3.3-6.2 7.3-6.2s6.4 2 7.3 6.2"/></svg>
+      </a>
+      <button class="icon-btn bag-btn" type="button" data-cart-open aria-label="Bag" data-i18n-aria-label="nav.bag">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 8h12l-1 12H7L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+        <span class="bag-count">0</span>
+      </button>
+      <button class="icon-btn menu-btn" type="button" data-menu-open aria-label="Menu" data-i18n-aria-label="nav.menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <div class="hero-kicker">
+          <span class="line"></span>
+          <span data-i18n="hero.kicker">The internet's best-kept back room</span>
+          <span class="tag" data-i18n="hero.badge">Drop 004</span>
+        </div>
+
+        <h1 class="display">
+          <span class="line" data-i18n="hero.title1">Brand names.</span>
+          <span class="line" data-i18n="hero.title2">Back-corner</span>
+          <span class="line">
+            <span class="price-highlight" data-i18n="hero.title3">prices.</span>
+            <span class="corner-dot" aria-hidden="true"></span>
+          </span>
+        </h1>
+
+        <p class="hero-sub" data-i18n-html="hero.sub">Video doorbells, security cameras, and smart-home tech from the brands you already trust — overstock and open-box, verified and warrantied, for up to <strong>70% less</strong> than the sticker.</p>
+
+        <div class="hero-actions">
+          <a class="btn btn-ink btn-lg" href="#drop">
+            <span data-i18n="hero.cta">Shop the drop</span>
+            <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn-outline btn-lg" href="#how" data-i18n="hero.cta2">How it works</a>
+        </div>
+
+        <div class="hero-trust">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="m5 12 4 4L19 6"/></svg><span data-i18n="hero.trust1">Verified & tested</span></span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg><span data-i18n="hero.trust2">30-day returns</span></span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 7h12v9H3zM15 10h3l3 3v3h-6z"/><circle cx="7" cy="18" r="1.6"/><circle cx="18" cy="18" r="1.6"/></svg><span data-i18n="hero.trust3">Free shipping over $49</span></span>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <span class="hero-side-label" data-i18n="hero.side">New drop every Thursday — 12pm ET</span>
+        <div class="hero-frame" data-hero-frame>
+          <img src="assets/img/products/ring-lifestyle.jpg" alt="Ring Battery Doorbell Pro mounted beside a front door" fetchpriority="high">
+          <span class="hero-frame-label"><span class="dot"></span><span data-i18n="hero.frame">This week’s find · Ring</span></span>
+        </div>
+
+        <div class="hero-sticker" aria-label="61% off">
+          <div>
+            <span class="big">61%</span>
+            <span class="small" data-i18n="common.off">off</span>
+          </div>
+        </div>
+
+        <div class="hero-price-card">
+          <div class="hero-price-top">
+            <div class="hero-price-brand">
+              <img src="assets/img/brands/ring.png" alt="">
+              <div>
+                <span class="mono">Ring</span>
+                <strong>Battery Doorbell Pro</strong>
+              </div>
+            </div>
+            <span class="hero-price-badge" data-i18n="hero.only14">Only 14 left</span>
+          </div>
+          <div class="hero-price-bottom">
+            <div>
+              <div class="price">$89</div>
+              <div class="was">$229.99</div>
+            </div>
+            <button class="add-mini" type="button" data-add-id="ring-battery-doorbell-pro" aria-label="Add to bag">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="hero-stamp" aria-hidden="true">
+          <svg viewBox="0 0 100 100">
+            <defs>
+              <path id="stampPath" d="M50,50 m-36,0 a36,36 0 1,1 72,0 a36,36 0 1,1 -72,0"/>
+            </defs>
+            <text fill="currentColor" font-family="Space Mono, monospace" font-size="6.1" letter-spacing="1.3">
+              <textPath href="#stampPath" startOffset="0">VERIFIED · AUTHENTIC · WARRANTIED · VERIFIED · AUTHENTIC ·</textPath>
+            </text>
+          </svg>
+          <span class="stamp-center">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 4 4L19 6"/></svg>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRAND TICKER -->
+  <div class="brand-ticker" aria-hidden="true">
+    <div class="container">
+      <div class="ticker-label" data-i18n="ticker.label">Stocked from the brands you know</div>
+      <div class="ticker-window">
+        <div class="ticker-track" data-ticker-track></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DROP -->
+  <section class="section" id="drop">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-head-left">
+          <div class="eyebrow" data-i18n="drop.eyebrow">The drop · 004</div>
+          <h2 class="section-title" data-i18n-html="drop.title">The good stuff, <em>marked down.</em></h2>
+          <p class="section-sub" data-i18n="drop.sub">Fourteen finds. Zero filler. When a unit sells out, it does not come back — that is the whole point of the back room.</p>
+        </div>
+        <div class="section-head-right">
+          <span class="chip chip-lime"><span style="width:5px;height:5px;border-radius:50%;background:var(--orange);display:inline-block"></span><span data-i18n="drop.live">Live now</span></span>
+          <a class="text-link" href="shop.html"><span data-i18n="drop.viewall">Shop all 14 finds</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+
+      <div class="product-grid" data-featured-grid></div>
+
+      <div class="section-head" style="margin-top:clamp(56px,7vw,96px)">
+        <div class="section-head-left">
+          <div class="eyebrow" data-i18n="under.eyebrow">Also in the back room</div>
+          <h2 class="section-title" data-i18n-html="under.title">The <em>under-$50</em> edit.</h2>
+          <p class="section-sub" data-i18n="under.sub">Everything you need to start a smarter home — without the flagship markup.</p>
+        </div>
+        <div class="section-head-right">
+          <a class="text-link" href="shop.html?price=50"><span data-i18n="common.viewall">View all</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+
+      <div class="product-grid" data-under50-grid></div>
+
+      <p class="mono" style="margin-top:32px;color:var(--ink-3);opacity:.62" data-i18n="drop.footer">Prices verified against original retail. Stock counts refresh every 15 minutes.</p>
+    </div>
+  </section>
+
+  <!-- BRAND WALL -->
+  <section class="section brand-wall-section" id="brands">
+    <div class="container">
+      <div class="brand-wall-head">
+        <div>
+          <div class="eyebrow" data-i18n="brandwall.eyebrow">The brand list</div>
+          <h2 data-i18n-html="brandwall.title">The brands you trust. The prices you will <em>screenshot.</em></h2>
+        </div>
+        <p data-i18n="brandwall.sub">We buy direct from brands, retailers, and fulfillment centers — then verify every unit before it reaches the corner. No knockoffs. No mystery pallets.</p>
+      </div>
+    </div>
+    <div class="brand-marquee" aria-hidden="true"><div class="brand-marquee-track" data-brand-row-1></div></div>
+    <div class="brand-marquee" aria-hidden="true"><div class="brand-marquee-track" data-brand-row-2></div></div>
+  </section>
+
+  <!-- STORY -->
+  <section class="section story">
+    <div class="container story-grid">
+      <div class="story-visual reveal-scale">
+        <div class="story-image">
+          <img src="assets/img/editorial/house.jpg" alt="A modern home at dusk" loading="lazy">
+          <span class="story-side-note">The back room · Est. 2024</span>
+          <span class="image-caption">Somewhere between the warehouse and your front door.</span>
+        </div>
+      </div>
+      <div class="story-copy">
+        <div class="eyebrow" data-i18n="story.eyebrow">The back room</div>
+        <h2 style="margin-top:18px" data-i18n-html="story.title">Good brands do not disappear. They get <em>overstocked.</em></h2>
+        <div class="story-body">
+          <p data-i18n="story.body1">Every year, millions of perfect products get boxed, palletized, and forgotten. Overproduction. Last season’s packaging. A retailer’s changed mind. The good stuff is still good — it just needs a different shelf.</p>
+          <p data-i18n-html="story.body2">We buy it before it becomes landfill, grade every unit, photograph what you are actually getting, and pass the savings straight to you. <strong>Same brands. Same tech. A much better corner.</strong></p>
+        </div>
+        <div class="story-stats">
+          <div class="stat"><div class="stat-num">61%</div><div class="stat-label" data-i18n="story.stat1">average discount</div></div>
+          <div class="stat"><div class="stat-num">18k+</div><div class="stat-label" data-i18n="story.stat2">units rescued</div></div>
+          <div class="stat"><div class="stat-num">4.9</div><div class="stat-label" data-i18n="story.stat3">member rating</div></div>
+        </div>
+        <div class="story-callout">
+          <span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 4 4L19 6"/></svg></span>
+          <p data-i18n="story.callout">No mystery boxes. No fake MSRPs. No games. If it is not worth the price, it does not make the drop.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATEGORIES -->
+  <section class="section category-section" id="categories">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-head-left">
+          <div class="eyebrow" data-i18n="categories.eyebrow">Find your corner</div>
+          <h2 class="section-title" data-i18n-html="categories.title">Pick a <em>rabbit hole.</em></h2>
+          <p class="section-sub" data-i18n="categories.sub">Shop by what you need. Or by what you did not know you needed until 11pm.</p>
+        </div>
+        <div class="section-head-right">
+          <span class="mono" style="color:var(--ink-3)">01 — 03</span>
+        </div>
+      </div>
+
+      <div class="cat-grid">
+        <a class="cat-card reveal" href="shop.html?category=doorbells">
+          <img src="assets/img/products/ring-lifestyle.jpg" alt="Video doorbell on a front door" loading="lazy">
+          <div class="cat-card-top">
+            <span class="chip">01 / 10 brands</span>
+            <span class="chip">24 finds</span>
+          </div>
+          <div class="cat-card-content">
+            <span class="mono" data-i18n="categories.doorbells.meta">10 brands · 24 finds</span>
+            <h3 data-i18n="categories.doorbells">Video doorbells</h3>
+            <span class="cat-link"><span data-i18n="categories.explore">Explore</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </div>
+        </a>
+
+        <a class="cat-card reveal reveal-delay-1" href="shop.html?category=cameras">
+          <img src="assets/img/products/blink.jpg" alt="Security camera mounted on a wooden fence" loading="lazy">
+          <div class="cat-card-top">
+            <span class="chip">02 / 37 brands</span>
+            <span class="chip">112 finds</span>
+          </div>
+          <div class="cat-card-content">
+            <span class="mono" data-i18n="categories.cameras.meta">37 brands · 112 finds</span>
+            <h3 data-i18n="categories.cameras">Security cameras</h3>
+            <span class="cat-link"><span data-i18n="categories.explore">Explore</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </div>
+        </a>
+
+        <a class="cat-card cat-lime reveal reveal-delay-2" href="shop.html?price=50">
+          <img src="assets/img/editorial/interior.jpg" alt="Bright modern living room" loading="lazy">
+          <div class="cat-card-top">
+            <span class="chip">03 / The sweet spot</span>
+            <span class="chip">48 finds</span>
+          </div>
+          <div class="cat-card-content">
+            <span class="mono" data-i18n="categories.under50.meta">The sweet spot · 48 finds</span>
+            <h3 data-i18n="categories.under50">The under-$50 edit</h3>
+            <span class="cat-link"><span data-i18n="categories.explore">Explore</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section how-section" id="how">
+    <div class="container">
+      <div class="how-head">
+        <div>
+          <div class="eyebrow" data-i18n="how.eyebrow">How the corner works</div>
+          <h2 style="margin-top:18px" data-i18n-html="how.title">We find the overstock. You get <em>the steal.</em></h2>
+        </div>
+        <p class="mono" data-i18n="how.sub">A shorter supply chain, a sharper price. That is the whole trick.</p>
+      </div>
+
+      <div class="steps">
+        <div class="step reveal">
+          <div class="step-num">01</div>
+          <h3 data-i18n="how.step1.title">We buy the back room</h3>
+          <p data-i18n="how.step1.body">Direct from brands, retailers, and fulfillment centers. The stuff that never made it to the shelf, or left it too soon.</p>
+        </div>
+        <div class="step reveal reveal-delay-1">
+          <div class="step-num">02</div>
+          <h3 data-i18n="how.step2.title">We check every box</h3>
+          <p data-i18n="how.step2.body">Tested, graded, photographed, and backed by a 30-day return window. You know exactly what is inside before you buy.</p>
+        </div>
+        <div class="step reveal reveal-delay-2">
+          <div class="step-num">03</div>
+          <h3 data-i18n="how.step3.title">You call dibs</h3>
+          <p data-i18n="how.step3.body">Drops go live Thursdays at 12pm ET. Members get first look. Everyone else gets the leftovers — if there are any.</p>
+        </div>
+      </div>
+
+      <div class="how-bottom">
+        <p data-i18n-html="how.bottom">No mystery boxes. No fake MSRPs. <em>No games.</em></p>
+        <a class="btn btn-lime" href="shop.html"><span data-i18n="how.cta">Shop the current drop</span><svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICE POINT -->
+  <section class="price-section">
+    <div class="container">
+      <div class="price-card reveal-scale">
+        <div class="price-copy">
+          <div class="eyebrow" data-i18n="price.eyebrow">The price is the point</div>
+          <h2 data-i18n-html="price.title">Same doorbell.<br><em>Different corner.</em></h2>
+          <p data-i18n="price.body">A 2K battery doorbell with a chime and no monthly fee for $49. Not a refurbished mystery unit. Not a 47-step coupon. Just the price we paid, plus a little to keep the lights on.</p>
+          <button class="btn btn-lg" type="button" data-product-id="aosu-v8p-doorbell"><span data-i18n="price.cta">See the $49 doorbell</span><svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        </div>
+        <div class="price-visual">
+          <div class="product-cutout">
+            <img src="assets/img/products/aosu.jpg" alt="AOSU V8P Video Doorbell" loading="lazy">
+          </div>
+          <div class="price-sticker"><div><strong>71%</strong><span data-i18n="price.sticker">off retail</span></div></div>
+          <div class="price-compare">
+            <span class="mono" data-i18n="price.before">Big-box price</span>
+            <div class="row"><span class="old">$169.99</span><span class="new">$49</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section testimonials">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-head-left">
+          <div class="eyebrow" data-i18n="quotes.eyebrow">Real steals. Real people.</div>
+          <h2 class="section-title" data-i18n-html="quotes.title">The group chat is <em>jealous.</em></h2>
+          <p class="section-sub" data-i18n="quotes.sub">A few notes from people who got to the drop before you did.</p>
+        </div>
+        <div class="section-head-right">
+          <span class="mono" style="color:var(--ink-3)">4.9 / 5 · 2,184 reviews</span>
+        </div>
+      </div>
+
+      <div class="quote-grid">
+        <article class="quote-card reveal">
+          <div class="quote-stars" aria-label="5 out of 5 stars">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3.1-5.8 3.1 1.1-6.5L2.6 9.4l6.5-.9L12 2.6Z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3.1-5.8 3.1 1.1-6.5L2.6 9.4l6.5-.9L12 2.6Z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3.1-5.8 3.1 1.1-6.5L2.6 9.4l6.5-.9L12 2.6Z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3.1-5.8 3.1 1.1-6.5L2.6 9.4l6.5-.9L12 2.6Z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3.1-5.8 3.1 1.1-6.5L2.6 9.4l6.5-.9L12 2.6Z"/></svg>
+          </div>
+          <p class="quote-text" data-i18n="quotes.q1">“I came for a doorbell and left with a camera, a chime, and a new personality.”</p>
+          <div class="quote-meta">
+            <div class="quote-person"><span data-i18n="quotes.q1.name">Maya R.</span><span data-i18n="quotes.q1.meta">Austin, TX · Member since 2024</span></div>
+            <span class="quote-logo">MR</span>
+          </div>
+        </article>
+
+        <article class="quote-card reveal reveal-delay-1">
+          <div class="quote-stars" aria-label="5 out of 5 stars">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3.1-5.8 3.1 1.1-6.5L2.6 9.4l6.5-.9L12 2.6Z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3.1-5.8 3.1 1.1-6.5L2.6 9.4l6.5-.9L12 2.6Z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3.1-5.8 3.1 1.1-6.5L2.6 9.4l6.5-.9L12 2.6Z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3.1-5.8 3.1 1.1-6.5L2.6 9.4l6.5-.9L12 2.6Z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3.1-5.8 3.1 1.1-6.5L2.6 9.4l6.5-.9L12 2.6Z"/></svg>
+          </div>
+          <p class="quote-text" data-i18n="quotes.q2">“The box said open-box. The camera looked brand new. My wallet is still recovering from the joy.”</p>
+          <div class="quote-meta">
+            <div class="quote-person"><span data-i18n="quotes.q2.name">Devin K.</span><span data-i18n="quotes.q2.meta">Columbus, OH · Member since 2023</span></div>
+            <span class="quote-logo">DK</span>
+          </div>
+        </article>
+
+        <article class="quote-card reveal reveal-delay-2">
+          <div class="quote-stars" aria-label="5 out of 5 stars">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3.1-5.8 3.1 1.1-6.5L2.6 9.4l6.5-.9L12 2.6Z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3.1-5.8 3.1 1.1-6.5L2.6 9.4l6.5-.9L12 2.6Z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3.1-5.8 3.1 1.1-6.5L2.6 9.4l6.5-.9L12 2.6Z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3.1-5.8 3.1 1.1-6.5L2.6 9.4l6.5-.9L12 2.6Z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3.1-5.8 3.1 1.1-6.5L2.6 9.4l6.5-.9L12 2.6Z"/></svg>
+          </div>
+          <p class="quote-text" data-i18n="quotes.q3">“Finally, a deal site that does not feel like a digital dumpster. The curation is actually good.”</p>
+          <div class="quote-meta">
+            <div class="quote-person"><span data-i18n="quotes.q3.name">Priya S.</span><span data-i18n="quotes.q3.meta">Seattle, WA · Member since 2024</span></div>
+            <span class="quote-logo">PS</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="newsletter">
+    <div class="newsletter-bg"><img src="assets/img/editorial/warehouse.jpg" alt="" loading="lazy"></div>
+    <div class="container newsletter-inner">
+      <div>
+        <div class="eyebrow" data-i18n="newsletter.eyebrow">First dibs</div>
+        <h2 data-i18n-html="newsletter.title">First dibs.<br><em>Every Thursday.</em></h2>
+      </div>
+      <div class="newsletter-form-wrap">
+        <p data-i18n="newsletter.body">One email. The new drop, the price cuts, and the finds that will not make it to the weekend. No filler, no daily spam.</p>
+        <form class="newsletter-form" id="newsletterForm" novalidate>
+          <div class="newsletter-input-row">
+            <input type="email" required data-i18n-placeholder="newsletter.placeholder" placeholder="Email address" aria-label="Email address">
+            <button type="submit" aria-label="Subscribe"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          </div>
+          <span class="newsletter-note" data-i18n="newsletter.note">By joining, you agree to our Terms and Privacy Policy. Unsubscribe anytime.</span>
+        </form>
+        <div class="newsletter-success" id="newsletterSuccess" data-i18n="newsletter.success">You are on the list. Check your inbox for a confirmation — and set an alarm for Thursday.</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a class="brand" href="index.html"><span class="brand-word">corner</span><span class="brand-dot"></span></a>
+        <p data-i18n="footer.about">The corner of the internet for brand-name overstock. Verified tech, honest prices, and the good kind of “I got it for how much?”.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="X" title="X"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 4l14 16M19 4 5 20"/></svg></a>
+          <a href="#" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.8 8.4h3.1V20H4.8zM6.3 3.8a1.8 1.8 0 1 1 0 3.6 1.8 1.8 0 0 1 0-3.6ZM10.2 8.4h3v1.6c.5-.9 1.7-1.9 3.5-1.9 3.4 0 4 2.2 4 5.1V20h-3.1v-5.9c0-1.4 0-3.2-2-3.2s-2.3 1.5-2.3 3.1V20h-3.1z"/></svg></a>
+          <a href="#" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7h2.4l.4-2.9h-2.8V9.3c0-.8.2-1.4 1.4-1.4h1.5V5.3c-.3 0-1.2-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.8v2.1H8v2.9h2.5v7z"/></svg></a>
+          <a href="#" aria-label="Reddit" title="Reddit"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="13.2" r="6.7"/><circle cx="9.3" cy="12.7" r="1" fill="#f2efe7"/><circle cx="14.7" cy="12.7" r="1" fill="#f2efe7"/><path d="M9 15.4c.8.8 1.8 1.2 3 1.2s2.2-.4 3-1.2" stroke="#f2efe7" stroke-width="1.2" fill="none" stroke-linecap="round"/><circle cx="18.3" cy="8.6" r="1.7"/><path d="M14.9 7.3 15.5 4l2.1.5" stroke="currentColor" stroke-width="1.2" fill="none" stroke-linecap="round"/></svg></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4 data-i18n="footer.shop">Shop</h4>
+        <a href="shop.html" data-i18n="footer.all">All finds</a>
+        <a href="shop.html?category=doorbells" data-i18n="footer.doorbells">Video doorbells</a>
+        <a href="shop.html?category=cameras" data-i18n="footer.cameras">Security cameras</a>
+        <a href="shop.html?price=50" data-i18n="footer.under50">Under $50</a>
+        <a href="#" data-i18n="footer.gift">Gift cards</a>
+      </div>
+
+      <div class="footer-col">
+        <h4 data-i18n="footer.help">Help</h4>
+        <a href="#" data-i18n="footer.shipping">Shipping & delivery</a>
+        <a href="#" data-i18n="footer.returns">Returns</a>
+        <a href="#" data-i18n="footer.faq">FAQ</a>
+        <a href="#" data-i18n="footer.contact">Contact</a>
+      </div>
+
+      <div class="footer-col">
+        <h4 data-i18n="footer.company">Company</h4>
+        <a href="#" data-i18n="footer.aboutus">About corner</a>
+        <a href="#how" data-i18n="footer.how">How it works</a>
+        <a href="#brands" data-i18n="footer.brands">Brands</a>
+        <a href="#" data-i18n="footer.careers">Careers</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span data-i18n="footer.rights">© 2026 corner. All rights reserved.</span>
+      <span class="demo-note" data-i18n="footer.demo">Demo checkout — no real payment will be processed.</span>
+      <div class="footer-legal">
+        <a href="#" data-i18n="footer.terms">Terms</a>
+        <a href="#" data-i18n="footer.privacy">Privacy</a>
+        <a href="#" data-i18n="footer.accessibility">Accessibility</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-mega" aria-hidden="true">corner<span class="dot">.</span></div>
+</footer>
+
+<script src="assets/js/data.js" defer></script>
+<script src="assets/js/i18n.js" defer></script>
+<script src="assets/js/app.js" defer></script>
+</body>
+</html>
